@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Button_White
+  m_Shader: {fileID: 4800000, guid: 86480d66f0ab96f44954681a72f6cc06, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 0
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _AO:
+        m_Texture: {fileID: 2800000, guid: a54f668daa0e96040b57a8f1ed163cef, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TextureSample0:
+        m_Texture: {fileID: 2800000, guid: a54f668daa0e96040b57a8f1ed163cef, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _texcoord:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _AO: 0.6
+    - _AO_Value: 0
+    - __dirty: 0
+    - _power: 4.4
+    m_Colors:
+    - _AO_Color: {r: 0.4811321, g: 0, b: 0, a: 0}
+    - _Color: {r: 0.5943396, g: 0.5943396, b: 0.5943396, a: 0}
+    - _Color2: {r: 0.14117648, g: 0.14117648, b: 0.14117648, a: 0}
+    - _Emission: {r: 0.14117648, g: 0.14117648, b: 0.14117648, a: 0}
