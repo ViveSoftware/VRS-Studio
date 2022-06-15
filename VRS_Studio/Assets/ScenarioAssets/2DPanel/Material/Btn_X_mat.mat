@@ -1,0 +1,110 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Btn_X_mat
+  m_Shader: {fileID: 4800000, guid: 2e71854cec859c14483d81b90f72e8e2, type: 3}
+  m_ShaderKeywords: _GRADIENTDIRECTION_YNEGATIVE
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BumpMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailAlbedoMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailNormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MetallicGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OcclusionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ParallaxMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _AODistribution: 0
+    - _AOHeight: 0
+    - _AOIntensity: 0.25
+    - _AOWidth: 0
+    - _AOXOffset: 0
+    - _AOYOffset: 0
+    - _BumpScale: 1
+    - _ColorType: 0
+    - _Cutoff: 0.5
+    - _DepthDistribution: 0.004
+    - _DepthIntensity: 0.365
+    - _DepthPosition: 0.002
+    - _DetailNormalMapScale: 1
+    - _DstBlend: 0
+    - _GlossMapScale: 1
+    - _Glossiness: 0.5
+    - _GlossyReflections: 1
+    - _GradientDirection: 3
+    - _GradientDistribution: 1
+    - _GradientIntensity: 0.1
+    - _GradientPosition: -1
+    - _Metallic: 0
+    - _Mode: 0
+    - _OcclusionStrength: 1
+    - _OutlinePosition: 0.00199
+    - _Parallax: 0.02
+    - _SheenPower: 0.65
+    - _SmoothnessTextureChannel: 0
+    - _SpecularHighlights: 1
+    - _SrcBlend: 1
+    - _State1: 0
+    - _State2: 1
+    - _StateFail: 0
+    - _StateFailOverrideTween: 1
+    - _StateTween: 1
+    - _UVSec: 0
+    - _ZWrite: 1
+    m_Colors:
+    - _AOColor: {r: 1, g: 0.3254902, b: 0.83921576, a: 1}
+    - _Active: {r: 0.83921576, g: 0.16862746, b: 0.17254902, a: 1}
+    - _ActiveHighlighted: {r: 0.9607844, g: 0.4666667, b: 0.39607847, a: 1}
+    - _ActivePressed: {r: 0.7058824, g: 0.07058824, b: 0.10588236, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _DepthColor: {r: 0.25490198, g: 0, b: 0.007843138, a: 1}
+    - _Disabled: {r: 0.9058824, g: 0.9176471, b: 0.9411765, a: 1}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _Error: {r: 0.9056604, g: 0.810445, b: 0.2947668, a: 1}
+    - _Gradient: {r: 0.7254902, g: 0, b: 0.039215688, a: 1}
+    - _Highlighted: {r: 0.9622642, g: 0.46819392, b: 0.39489147, a: 1}
+    - _Normal: {r: 0.91372555, g: 0.38431376, b: 0.29803923, a: 1}
+    - _Pressed: {r: 0.7075472, g: 0.07008722, b: 0.10675021, a: 1}
+    - _SheenColor: {r: 0.101960786, g: 0.3019608, b: 0.54901963, a: 1}
