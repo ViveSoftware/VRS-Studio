@@ -56,6 +56,8 @@ VRS Studio is a project created by HTC VIVE to demonstrate the features of VIVE 
 ### Prerequisites
 
 - Unity 2019.4.28f1 (With Android Build Support)
+- Azure Cognitive Services key (For voice related features)
+- Azure LUIS key and App ID (For voice related features)
 
 ### Instructions
 
@@ -83,8 +85,6 @@ See `LICENSE.pdf` for more information.
 ## Contact
 
 Project Link: [https://github.com/ViveSoftware/VRS-Studio](https://github.com/ViveSoftware/VRS-Studio)
-
-Forum: [https://forum.vive.com/topic/12693-vrs-studio-v001-download-and-experience-now/](https://forum.vive.com/topic/12693-vrs-studio-v001-download-and-experience-now/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
