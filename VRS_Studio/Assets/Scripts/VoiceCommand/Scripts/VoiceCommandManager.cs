@@ -27,6 +27,11 @@ namespace Wave.VoiceCommand
 		//CognitiveServices identity
 		private const string m_SUBSCRIPTION_KEY = "";
 		private const string m_REGION = "";
+
+		public bool IsCognitiveServicesInfoValid()
+		{
+			return (!String.IsNullOrEmpty(m_SUBSCRIPTION_KEY) && !String.IsNullOrEmpty(m_REGION));
+		}
 #endif
 
 		private static string SUBSCRIPTION_KEY
@@ -51,10 +56,18 @@ namespace Wave.VoiceCommand
 #endif
 			}
 		}
+
+#if !VRSSTUDIO_INTERNAL
 		// LUIS identity
 		private const string m_LUIS_SUBSCRIPTION_KEY = "";
 		private const string m_LUIS_REGION = "";
 		private const string m_LUIS_APP_ID = "";
+
+		public bool IsLUISInfoValid()
+		{
+			return (!String.IsNullOrEmpty(m_LUIS_SUBSCRIPTION_KEY) && !String.IsNullOrEmpty(m_LUIS_REGION) && !String.IsNullOrEmpty(m_LUIS_APP_ID));
+		}
+#endif
 
 		private static string LUIS_SUBSCRIPTION_KEY
 		{

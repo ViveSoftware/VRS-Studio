@@ -17,7 +17,7 @@ public class RobotAssistantEntranceSequence : MonoBehaviour
     void Start()
     {
         if (robotAssistantManagerInstance == null)
-		{
+        {
             robotAssistantManagerInstance = RobotAssistantManager.robotAssistantManagerInstance;
         }
 
@@ -54,21 +54,32 @@ public class RobotAssistantEntranceSequence : MonoBehaviour
     }
 
     private async Task ToTutorialSequence()
-	{
+    {
+#if !VRSSTUDIO_INTERNAL
+        if (VoiceCommandManager.Instance.IsCognitiveServicesInfoValid())
+        {
+#endif
         await VoiceCommandManager.Instance.ReInitializeSpeechSynthesizer("en-US", "en-US-GuyNeural");
 
         VoiceCommandManager.Instance.SpeechSynthesizerComponent.SynthesisStarted += OnToTutorialVoiceBegin;
 
         await VoiceCommandManager.Instance.StartSynthesis(tutorialIntroLine);
+#if !VRSSTUDIO_INTERNAL
+        }
+        else
+        {
+            StartCoroutine(OnToTutorialVoiceBeginCoroutine());
+        }            
+#endif
     }
 
     private void OnToTutorialVoiceBegin(object sender, SpeechSynthesisEventArgs e)
-	{
+    {
         StartCoroutine(OnToTutorialVoiceBeginCoroutine());
     }
 
     IEnumerator OnToTutorialVoiceBeginCoroutine()
-	{
+    {
         robotAssistantManagerInstance.robotAssistantSpeechBubble.TextBoardShowup(true);
         yield return new WaitForSecondsRealtime(1.5f);
         robotAssistantManagerInstance.robotAssistantSpeechBubble.RobotLines = tutorialIntroLine;
@@ -85,14 +96,25 @@ public class RobotAssistantEntranceSequence : MonoBehaviour
     }
 
     private async Task ReplaySequence()
-	{
+    {
         VRSStudioSceneManager.Instance.InitialSceneLoadSequence();
 
+#if !VRSSTUDIO_INTERNAL
+        if (VoiceCommandManager.Instance.IsCognitiveServicesInfoValid())
+        {
+#endif
         await VoiceCommandManager.Instance.ReInitializeSpeechSynthesizer("en-US", "en-US-GuyNeural");
 
         VoiceCommandManager.Instance.SpeechSynthesizerComponent.SynthesisStarted += ReplayVoiceBegin;
 
         await VoiceCommandManager.Instance.StartSynthesis(replayIntroLine);
+#if !VRSSTUDIO_INTERNAL
+        }
+        else
+        {
+            StartCoroutine(ReplayVoiceBeginCoroutine());
+        }
+#endif
     }
 
     private void ReplayVoiceBegin(object sender, SpeechSynthesisEventArgs e)
