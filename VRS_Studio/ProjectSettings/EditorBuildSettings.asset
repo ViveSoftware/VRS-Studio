@@ -15,9 +15,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Entrance.unity
     guid: 3a170ad1340a91a4d95fd5e2888e917a
   - enabled: 1
-    path: Assets/Scenes/BaseScene.unity
-    guid: 1a94e1dccdf9590499429efcc9104dda
-  - enabled: 1
     path: Assets/Scenes/NavMenu.unity
     guid: 4a945465642d3474b958e2783a3211b1
   - enabled: 1
@@ -35,9 +32,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/2DPanel.unity
     guid: 2778a634ddc5d4e4fa5de419a9929009
-  - enabled: 1
-    path: Assets/Internal/Scenes/Mirror.unity
-    guid: 008e6fca6d4fdb24e944e4b8f531128c
   m_configObjects:
     com.htc.upm.wave.xrsdk.xrsettings: {fileID: 11400000, guid: 4f78a4af1e79c4e4382c867e5ab6d636,
       type: 2}
