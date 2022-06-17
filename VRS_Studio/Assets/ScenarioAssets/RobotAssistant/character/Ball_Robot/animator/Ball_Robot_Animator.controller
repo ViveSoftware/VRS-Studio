@@ -110,7 +110,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Jelbee_VRS _Ball
+  m_Name: Ball_Robot_Animator
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: tMove
@@ -5245,8 +5245,8 @@ AnimatorStateTransition:
   m_IsExit: 0
   serializedVersion: 3
   m_TransitionDuration: 0
-  m_TransitionOffset: 0
-  m_ExitTime: 1.0246418
+  m_TransitionOffset: 0.01196011
+  m_ExitTime: 1.0007216
   m_HasExitTime: 1
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
