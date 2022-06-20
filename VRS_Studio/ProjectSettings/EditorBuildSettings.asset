@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/SceneManager.unity
     guid: 5bc49f0d673b65e4ea402039a840f7d0
   - enabled: 1
+    path: Assets/Scenes/BaseScene.unity
+    guid: b85f7f921f0d97945bd236e3a18c8d8a
+  - enabled: 1
     path: Assets/Scenes/RobotAssistant.unity
     guid: 190710a33bb8b754fa1a07fc8ed1da62
   - enabled: 1
