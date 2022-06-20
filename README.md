@@ -67,7 +67,7 @@ VRS Studio is a project created by HTC VIVE to demonstrate the features of VIVE 
    ```
 2. In Unity Hub, select "Add project from disk" and select the "VRS_Studio" project folder.
 3. Make sure that the editor version used is "2019.4.28f1" and the platform is set to "Android".
-4. After waiting for the project to load, select "VRS Studio -> Build VRS Studio -> 32-bit/64-bit" on the menu bar to build VRS Studio. The APK can be found in "VRSStudio_Builds" under the "VRS_Studio" project folder. 
+4. After waiting for the project to load, select <b style="background-color: yellow">"VRS Studio -> Build VRS Studio -> 32-bit/64-bit"</b> on the menu bar to build VRS Studio. The APK can be found in "VRSStudio_Builds" under the "VRS_Studio" project folder. 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
