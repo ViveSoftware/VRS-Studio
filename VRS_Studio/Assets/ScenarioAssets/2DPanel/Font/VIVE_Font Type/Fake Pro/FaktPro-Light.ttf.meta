@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 7f0d3b8bc8d881346af124b263f30d99
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Fakt Pro
+  fontNames:
+  - Fakt Pro
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 70c73fa3fc12f3547be37728793af6c1, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

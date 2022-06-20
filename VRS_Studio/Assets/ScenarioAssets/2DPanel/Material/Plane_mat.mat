@@ -1,0 +1,189 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Plane_mat
+  m_Shader: {fileID: 4800000, guid: 8a5fbd01989dd7c46b8f4132bbde1ed1, type: 3}
+  m_ShaderKeywords: _GRADIENTDIRECTION_XNEGATIVE
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _AlphaTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _AlphaText:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BumpMap:
+        m_Texture: {fileID: 2800000, guid: e3ba8bc476e919b4b9308f1d6abe660b, type: 3}
+        m_Scale: {x: 5, y: 5}
+        m_Offset: {x: 0, y: 0}
+    - _DetailAlbedoMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailNormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainBump:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MetallicGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalMapII:
+        m_Texture: {fileID: 2800000, guid: fbba011cc6fa1474294f6700f3e9ac41, type: 3}
+        m_Scale: {x: 5, y: 5}
+        m_Offset: {x: 0, y: 0}
+    - _OcclusionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ParallaxMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SpecGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _snow:
+        m_Texture: {fileID: 2800000, guid: 50c397b0cfd8e7f4cb233370c8999495, type: 3}
+        m_Scale: {x: 5, y: 5}
+        m_Offset: {x: 0, y: 0}
+    - _texcoord:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _texcoord3:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - PixelSnap: 0
+    - _AODistribution: 0
+    - _AOHeight: 0
+    - _AOIntensity: 0
+    - _AOWidth: 0
+    - _AOXOffset: 0
+    - _AOYOffset: 0
+    - _AlphaBlur: 0.44
+    - _AlphaLevel: 0.3
+    - _BumpScale: 1
+    - _ColorMask: 15
+    - _ColorType: 0
+    - _Cutoff: 0.5
+    - _DepthDistribution: 0.004
+    - _DepthIntensity: 0
+    - _DepthPosition: 0.002
+    - _DetailNormalMapScale: 1
+    - _DstBlend: 0
+    - _EnableExternalAlpha: 0
+    - _Freezeeffectnormal: 2.71
+    - _Gloss: 0.486
+    - _GlossMapScale: 1
+    - _Glossiness: 0
+    - _GlossyReflections: 1
+    - _GradientDirection: 1
+    - _GradientDistribution: 0
+    - _GradientIntensity: 0
+    - _GradientPosition: 0
+    - _Ice_fresnel: 0.43
+    - _LocalGlobal: 0
+    - _Metallic: 0
+    - _Mode: 0
+    - _OcclusionStrength: 1
+    - _Opacity: 0.5
+    - _OutlinePosition: 0.00199
+    - _OutlineThickness: 0.001
+    - _OverlayDistribution: 1
+    - _OverlayPosition: 0.6
+    - _OverlayPower: 1
+    - _Parallax: 0.02
+    - _SheenPower: 0.3
+    - _Shininess: 0.2
+    - _SmoothnessTextureChannel: 0
+    - _Softness: 0
+    - _SpecularHighlights: 1
+    - _SrcBlend: 1
+    - _State1: 0
+    - _State2: 1
+    - _StateFail: 0
+    - _StateFailOverrideTween: 1
+    - _StateTween: 1
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _Transparency: 0.490779
+    - _UVSec: 0
+    - _UseUIAlphaClip: 0
+    - _XPos: 0.5
+    - _XStretch: 0.5
+    - _YPos: 0.5
+    - _YStretch: 0.5
+    - _ZWrite: 1
+    - __dirty: 1
+    - _line_opacity: 0.5
+    - _opacity: 0.2979249
+    - _power: 0.5
+    - _snow_slider: 6.71
+    - _thickness: 0.001
+    m_Colors:
+    - _AOColor: {r: 0.47450978, g: 0.7411765, b: 0.9490196, a: 1}
+    - _Active: {r: 0.33725488, g: 0.8509804, b: 0.9647059, a: 1}
+    - _ActiveHighlighted: {r: 0, g: 0.7019608, b: 0.8901961, a: 1}
+    - _ActivePressed: {r: 0.33725488, g: 0.8509804, b: 0.9647059, a: 1}
+    - _Color: {r: 0.01321645, g: 0.0218367, b: 0.028301895, a: 1}
+    - _DepthColor: {r: 0.33725488, g: 0.8509804, b: 0.9647059, a: 1}
+    - _Disabled: {r: 0.9058824, g: 0.9176471, b: 0.9411765, a: 1}
+    - _Emission: {r: 1.077491, g: 1.077491, b: 1.077491, a: 0}
+    - _EmissionColor: {r: 1.077491, g: 1.077491, b: 1.077491, a: 0}
+    - _Error: {r: 0.8313726, g: 0.20392156, b: 0.18823525, a: 1}
+    - _Flip: {r: 1, g: 1, b: 1, a: 1}
+    - _Gradient: {r: 0.8470588, g: 0.972549, b: 0.9568626, a: 1}
+    - _Highlighted: {r: 0, g: 0.7019608, b: 0.8901961, a: 1}
+    - _Normal: {r: 0.33725488, g: 0.8509804, b: 0.9647059, a: 1}
+    - _OverlayColor: {r: 0.13333334, g: 0.16470589, b: 0.19607843, a: 1}
+    - _Pressed: {r: 0.33725488, g: 0.8509804, b: 0.9647059, a: 1}
+    - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
+    - _SheenColor: {r: 0.17254895, g: 0.22745097, b: 0.31372547, a: 1}
+    - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
+    - _Specular: {r: 0, g: 0, b: 0, a: 0}
+    - _hand_color: {r: 0.004360993, g: 0.35308066, b: 0.9245283, a: 0}
+    - _handglow_color: {r: 1, g: 1, b: 1, a: 0}
+    - _line_emission: {r: 1.059274, g: 1.059274, b: 1.059274, a: 0}
+    - _linecolor: {r: 1, g: 1, b: 1, a: 0}

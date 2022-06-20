@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UILayout_FrameBSide
+  m_Shader: {fileID: 4800000, guid: 845a4e8a8d909e841b3ffd019ca4d86b, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 0
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _texcoord2:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _Gralevel: 0.66
+    - _Gralevel_Test: 0.53
+    - _Inner_op: 0.63
+    - _OutRim_Blur: 0.28
+    - _OutRim_Width: 0.2
+    - _OutRim_WidthB: 2.8
+    - _OuterInRimLight: 6.38
+    - _OuterRim_power: 1.5
+    - _Overall_Blur: 0.3
+    - _Overall_Gralevel: 0.43
+    - _Overall_op: 1
+    - __dirty: 0
+    - _blur: 0.2
+    - _blur_Test: 0.63
+    - _frameGralevel: 0.71
+    - _frameblur: 0
+    - _half: 0.5
+    - _op: 1
+    m_Colors:
+    - _Color: {r: 0.5019608, g: 0.5176471, b: 0.5568628, a: 0}
+    - _Color2: {r: 0.59607846, g: 0.59607846, b: 0.59607846, a: 0}
+    - _ColorB: {r: 0.345098, g: 0.3647059, b: 0.3960784, a: 0}
+    - _ColorB1: {r: 0, g: 0, b: 0, a: 0}
+    - _FrameColor: {r: 0.59607846, g: 0.59607846, b: 0.59607846, a: 0}
+    - _OuterRimColor: {r: 0.90334636, g: 0.9230219, b: 0.9433962, a: 0}
