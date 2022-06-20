@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "com.htc.upm.vive-input-utility": "1.16.0-preview.1",
+    "com.htc.upm.vive-input-utility": "1.16.0",
     "com.htc.upm.wave.essence": "4.3.0-r.5",
     "com.htc.upm.wave.native": "4.3.0-r.5",
     "com.htc.upm.wave.xrsdk": "4.3.0-r.5",
@@ -47,7 +47,7 @@
   "scopedRegistries": [
     {
       "name": "VIVE",
-      "url": "http://tv01009052up.htctaipei.htc.com.tw:4873/",
+      "url": "https://npm-registry.vive.com",
       "scopes": [
         "com.htc.upm"
       ]
