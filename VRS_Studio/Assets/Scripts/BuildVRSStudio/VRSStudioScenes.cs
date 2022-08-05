@@ -46,9 +46,12 @@ namespace VRSStudio.Build
             return new List<SceneData>()
             {
                 new SceneData("SceneManager", "Assets/Scenes/SceneManager.unity"),
-                new SceneData("RobotAssistant", "Assets/Scenes/RobotAssistant.unity"),
-                new SceneData("Entrance", "Assets/Scenes/Entrance.unity"),
+
+#if !VRSSTUDIO_INTERNAL
                 new SceneData("BaseScene", "Assets/Scenes/BaseScene.unity"),
+                new SceneData("RobotAssistant", "Assets/Scenes/RobotAssistant.unity"),
+#endif
+                new SceneData("Entrance", "Assets/Scenes/Entrance.unity"),
                 new SceneData("NavMenu", "Assets/Scenes/NavMenu.unity"),
 
                 new SceneData("TrackingBoundaryGuide", "Assets/Scenes/TrackingBoundaryGuide.unity"),

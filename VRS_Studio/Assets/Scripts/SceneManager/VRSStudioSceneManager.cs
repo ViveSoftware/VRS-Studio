@@ -7,7 +7,12 @@ using Wave.Native;
 public class VRSStudioSceneManager : MonoBehaviour
 {
 	public static VRSStudioSceneManager Instance = null;
-	public string DemoAppEnvironmentScenePath, NavMenuScenePath, EntranceContentScenePath, TutorialContentScenePath, RobotAssistantScenePath;
+
+	public const string BaseEnvironmentScenePath = "Assets/Scenes/BaseScene.unity";
+	public const string NavMenuScenePath = "Assets/Scenes/NavMenu.unity";
+	public const string EntranceContentScenePath = "Assets/Scenes/Entrance.unity";
+	public const string TutorialContentScenePath = "Assets/Scenes/TrackingBoundaryGuide.unity";
+	public const string RobotAssistantScenePath = "Assets/Scenes/RobotAssistant.unity";
 
 	public delegate void SceneManager_OnLoadNewContentScene();
 	public event SceneManager_OnLoadNewContentScene OnLoadNewContentScene;
@@ -24,8 +29,24 @@ public class VRSStudioSceneManager : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
 	{
-		if (DemoAppEnvironmentScenePath != null) SceneManager.LoadSceneAsync(DemoAppEnvironmentScenePath, LoadSceneMode.Additive);
-		if (RobotAssistantScenePath != null) SceneManager.LoadSceneAsync(RobotAssistantScenePath, LoadSceneMode.Additive);
+
+		if (BaseEnvironmentScenePath != null)
+		{
+#if !VRSSTUDIO_INTERNAL
+			SceneManager.LoadSceneAsync(BaseEnvironmentScenePath, LoadSceneMode.Additive);
+#else
+			SceneManager.LoadSceneAsync(VRSStudio.Internal.SceneManager.SceneManagerInternal.BaseEnvironmentScenePathInternal, LoadSceneMode.Additive);
+#endif
+		}
+
+		if (RobotAssistantScenePath != null)
+		{
+#if !VRSSTUDIO_INTERNAL
+			SceneManager.LoadSceneAsync(RobotAssistantScenePath, LoadSceneMode.Additive);
+#else
+			SceneManager.LoadSceneAsync(VRSStudio.Internal.SceneManager.SceneManagerInternal.RobotAssistantScenePathInternal, LoadSceneMode.Additive);
+#endif
+		}
 	}
 
 	public void LoadNavMenuScene()
