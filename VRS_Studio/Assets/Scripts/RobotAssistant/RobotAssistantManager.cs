@@ -74,7 +74,7 @@ public class RobotAssistantManager : MonoBehaviour
         {
             yield return null;
         }
-        OnChangeFacial(FacialAnimationIndex.PowerOn);
+        OnChangeFacial(RobotAssistantEnums.FacialAnimationIndex.PowerOn);
 
         float currentNormalizedTime = robotAssistantAnimator.GetCurrentAnimatorStateInfo(animarionLayer_Base).normalizedTime;
         while ((currentNormalizedTime) < 0.6f)
@@ -83,7 +83,7 @@ public class RobotAssistantManager : MonoBehaviour
             yield return null;
         }
 
-        OnChangeFacial(FacialAnimationIndex.Normal);
+        OnChangeFacial(RobotAssistantEnums.FacialAnimationIndex.Normal);
 
         isIdle = true;
         isLeisure = true;
@@ -98,7 +98,7 @@ public class RobotAssistantManager : MonoBehaviour
 
         robotAssistantAnimator.SetBool(animationBool_isPowerOn, false);
 
-        OnChangeFacial(FacialAnimationIndex.PowerOff);
+        OnChangeFacial(RobotAssistantEnums.FacialAnimationIndex.PowerOff);
 
         yield return null;
     }
@@ -203,7 +203,7 @@ public class RobotAssistantManager : MonoBehaviour
     private float sleepTimeThres = 60f;
     public void PlayLeisureAnimation()
     {
-		if (defaultFacial != FacialAnimationIndex.Normal)
+		if (defaultFacial != RobotAssistantEnums.FacialAnimationIndex.Normal)
 		{
 			return;
 		}
@@ -216,7 +216,7 @@ public class RobotAssistantManager : MonoBehaviour
 		if (leisureTimer > sleepTimeThres)
 		{
 			isSleep = true;
-			TriggerReaction(ReactionAnimationIndex.Sleep); //Sleep
+			TriggerReaction(RobotAssistantEnums.ReactionAnimationIndex.Sleep); //Sleep
             RobotAssistantLoSCaster.RobotAssistantLoS_EnterCallback += TriggerWakeUp;
         }
 
@@ -365,7 +365,7 @@ public class RobotAssistantManager : MonoBehaviour
     [SerializeField] private TextureAnimator texAnim = null;
     //[SerializeField] private GuideRobotEffect effect = null;
 
-    public FacialAnimationIndex defaultFacial = FacialAnimationIndex.Normal;
+    public RobotAssistantEnums.FacialAnimationIndex defaultFacial = RobotAssistantEnums.FacialAnimationIndex.Normal;
 
     private IEnumerator FacialControllerIEnumerator = null;
 
@@ -374,13 +374,13 @@ public class RobotAssistantManager : MonoBehaviour
         OnChangeFacial(defaultFacial);
     }
 
-    public void OnChangeDefaultFacial(FacialAnimationIndex facial)
+    public void OnChangeDefaultFacial(RobotAssistantEnums.FacialAnimationIndex facial)
     {
         defaultFacial = facial;
         OnChangeFacial(defaultFacial);
     }
 
-    public void OnChangeFacial(FacialAnimationIndex facial)
+    public void OnChangeFacial(RobotAssistantEnums.FacialAnimationIndex facial)
     {
         if (FacialControllerIEnumerator != null)
         {
@@ -391,7 +391,7 @@ public class RobotAssistantManager : MonoBehaviour
         //Debug.Log("OnChangeFacial" + facial.ToString());
         switch (facial)
         {
-            case FacialAnimationIndex.Normal:
+            case RobotAssistantEnums.FacialAnimationIndex.Normal:
                 texAnim.Play(facial.ToString());
                 FacialControllerIEnumerator = WaitBlinkCoroutine();
                 StartCoroutine(FacialControllerIEnumerator);
@@ -432,13 +432,16 @@ public class RobotAssistantManager : MonoBehaviour
     private IEnumerator WaitBlinkCoroutine()
     {
         yield return new WaitForSeconds(blinkInterval);
-
-        OnChangeFacial(FacialAnimationIndex.NormalBlinkOnce);
+#if !VRSSTUDIO_INTERNAL
+        OnChangeFacial(RobotAssistantEnums.FacialAnimationIndex.NormalBlinkOnce);
+#else
+        OnChangeFacial(RobotAssistantEnums.FacialAnimationIndex.NormalBlink);
+#endif
     }
-    #endregion
+#endregion
 
-    #region Robot reaction
-    public void TriggerReaction(ReactionAnimationIndex pose)
+#region Robot reaction
+    public void TriggerReaction(RobotAssistantEnums.ReactionAnimationIndex pose)
     {
         robotAssistantAnimator.SetTrigger("tReaction");
         robotAssistantAnimator.SetBool("isIdle", false);
@@ -446,14 +449,14 @@ public class RobotAssistantManager : MonoBehaviour
 
         isLeisure = false;
 
-        OnChangeFacial(InquireFacial(pose));
+        OnChangeFacial(RobotAssistantEnums.InquireFacial(pose));
     }
 
     public void TriggerLeisure()
     {
         robotAssistantAnimator.SetTrigger("tLeisure");
 
-        int random = Random.Range(0, (int)IdleAnimationIndex.size);
+        int random = Random.Range(0, (int)RobotAssistantEnums.IdleAnimationIndex.size);
 
         if (random == 3) { return; } // Rotate dance has rotation info.
 
@@ -462,7 +465,7 @@ public class RobotAssistantManager : MonoBehaviour
         idleTimer = 0;
         leisureTimeThres = Random.Range(5f, 7f);
 
-        OnChangeFacial(InquireFacial((IdleAnimationIndex)random));
+        OnChangeFacial(RobotAssistantEnums.InquireFacial((RobotAssistantEnums.IdleAnimationIndex)random));
     }
 
     public void TriggerWakeUp()
@@ -493,22 +496,26 @@ public class RobotAssistantManager : MonoBehaviour
 
     }
     #endregion
+}
 
-    #region Animation State enum definition
+#region Animation State enum definition
+#if !VRSSTUDIO_INTERNAL
+public static class RobotAssistantEnums
+{
     public enum ReactionAnimationIndex
-	{
+    {
         Angry = 0,
         Happy = 1,
         Sleep = 2,
         GoAhead = 3,
         size
-	}
+    }
 
     public enum IdleAnimationIndex
-	{
+    {
         RotateDance = 0,
         size
-	}
+    }
 
     public enum FacialAnimationIndex
     {
@@ -525,7 +532,7 @@ public class RobotAssistantManager : MonoBehaviour
         size
     }
 
-    public FacialAnimationIndex InquireFacial(ReactionAnimationIndex pose)
+    public static FacialAnimationIndex InquireFacial(ReactionAnimationIndex pose)
     {
         FacialAnimationIndex facial = FacialAnimationIndex.none;
         switch (pose)
@@ -547,7 +554,7 @@ public class RobotAssistantManager : MonoBehaviour
         return facial;
     }
 
-    public FacialAnimationIndex InquireFacial(IdleAnimationIndex pose)
+    public static FacialAnimationIndex InquireFacial(IdleAnimationIndex pose)
     {
         FacialAnimationIndex facial = FacialAnimationIndex.none;
         switch (pose)
@@ -561,5 +568,8 @@ public class RobotAssistantManager : MonoBehaviour
         }
         return facial;
     }
-    #endregion
 }
+#endif
+
+
+#endregion

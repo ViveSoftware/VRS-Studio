@@ -158,18 +158,29 @@ public class GameController : MonoBehaviour
                         ClearTextPanel();
                         resultObjs[1].SetActive(true);
                         resultPlayableDirectors[1].Play();
-                        RobotAssistantManager.robotAssistantManagerInstance.TriggerReaction(RobotAssistantManager.ReactionAnimationIndex.Happy);
+#if !VRSSTUDIO_INTERNAL
+                        RobotAssistantManager.robotAssistantManagerInstance.TriggerReaction(RobotAssistantEnums.ReactionAnimationIndex.Happy);
+#else
+                        RobotAssistantManager.robotAssistantManagerInstance.TriggerReaction(RobotAssistantEnums.ReactionAnimationIndex.Clap);
+#endif
                         break;
                     case ResultState.Win:
                         ClearTextPanel();
                         resultObjs[0].SetActive(true);
                         resultPlayableDirectors[0].Play();
-                        RobotAssistantManager.robotAssistantManagerInstance.TriggerReaction(RobotAssistantManager.ReactionAnimationIndex.Angry);
+#if !VRSSTUDIO_INTERNAL
+                        RobotAssistantManager.robotAssistantManagerInstance.TriggerReaction(RobotAssistantEnums.ReactionAnimationIndex.Angry);
+#else
+                        RobotAssistantManager.robotAssistantManagerInstance.TriggerReaction(RobotAssistantEnums.ReactionAnimationIndex.Scare);
+#endif
                         break;
                     case ResultState.Tie:
                         ClearTextPanel();
                         resultObjs[2].SetActive(true);
                         resultPlayableDirectors[2].Play();
+#if VRSSTUDIO_INTERNAL
+                        RobotAssistantManager.robotAssistantManagerInstance.TriggerReaction(RobotAssistantEnums.ReactionAnimationIndex.ScratchHead);
+#endif
                         break;
                     case ResultState.SingleHand:
                         DisplayMessage(true, false);
