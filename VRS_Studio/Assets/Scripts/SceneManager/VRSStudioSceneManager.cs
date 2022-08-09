@@ -12,6 +12,8 @@ public class VRSStudioSceneManager : MonoBehaviour
 	public delegate void SceneManager_OnLoadNewContentScene();
 	public event SceneManager_OnLoadNewContentScene OnLoadNewContentScene;
 
+	private bool isLoadingScene = false;
+
 	private string currentContentScenePath = null;
 
 	private string LOG_TAG = "HandDemoSceneManager";
@@ -19,6 +21,16 @@ public class VRSStudioSceneManager : MonoBehaviour
 	private void Awake()
 	{
 		Instance = this;
+	}
+
+	private void OnEnable()
+	{
+		SceneManager.sceneLoaded += OnSceneLoaded;
+	}
+
+	private void OnDisable()
+	{
+		SceneManager.sceneLoaded -= OnSceneLoaded;
 	}
 
 	// Start is called before the first frame update
@@ -47,6 +59,8 @@ public class VRSStudioSceneManager : MonoBehaviour
 
 	public void SwitchContentScene(string TargetContentScenePath, bool EnableEnvironment)
 	{
+		if (isLoadingScene) return; // Do not start the content switch process if a scene is already being loaded
+
 		if (VRSStudioEnvController.Instance.IsEnvActive() != EnableEnvironment)
 		{
 			VRSStudioEnvController.Instance.SetEnvActive(EnableEnvironment);
@@ -60,6 +74,7 @@ public class VRSStudioSceneManager : MonoBehaviour
 		if (TargetContentScenePath != null)
 		{
 			Log.d(LOG_TAG, "SwitchContentScene: " + TargetContentScenePath);
+			isLoadingScene = true;
 			SceneManager.LoadSceneAsync(TargetContentScenePath, LoadSceneMode.Additive);
 			currentContentScenePath = TargetContentScenePath;
 			if (OnLoadNewContentScene != null) OnLoadNewContentScene.Invoke();
@@ -68,6 +83,8 @@ public class VRSStudioSceneManager : MonoBehaviour
 
 	public void SwitchContentScene(string TargetContentScenePath) //Will enable env if not enabled
 	{
+		if (isLoadingScene) return; // Do not start the content switch process if a scene is already being loaded
+
 		if (currentContentScenePath != null)
 		{
 			Log.d(LOG_TAG, "Unloading Scene: " + currentContentScenePath);
@@ -80,11 +97,22 @@ public class VRSStudioSceneManager : MonoBehaviour
 			{
 				VRSStudioEnvController.Instance.SetEnvActive(true);
 			}
+			isLoadingScene = true;
 			SceneManager.LoadSceneAsync(TargetContentScenePath, LoadSceneMode.Additive);
 			currentContentScenePath = TargetContentScenePath;
 			if (OnLoadNewContentScene != null) OnLoadNewContentScene.Invoke();
 		}
 	}
+
+	private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+	{
+		Log.d(LOG_TAG, "OnSceneLoaded: " + scene.name);
+		if (scene.name.Equals(currentContentScenePath))
+		{
+			isLoadingScene = false;
+		}
+	}
+
 
 	public string CurrentContentScenePath()
 	{
