@@ -60,7 +60,8 @@ public class StartButton : MonoBehaviour
             idleTimeline.Stop();
             var indexTip = default(JointPose);
             VivePose.TryGetHandJointPose(role, HandJointName.IndexTip, out indexTip);
-            var value = indexTip.pose.pos.x - drag.transform.position.x;
+            //var value = indexTip.pose.pos.x - drag.transform.position.x;
+            var value = Vector3.Distance(indexTip.pose.pos, drag.transform.position);
 
             if (value > 0.25f)
             {

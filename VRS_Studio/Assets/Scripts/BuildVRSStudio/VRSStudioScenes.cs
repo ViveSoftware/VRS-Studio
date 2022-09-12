@@ -58,7 +58,9 @@ namespace VRSStudio.Build
                 new SceneData("ScissorsPaperRock", "Assets/Scenes/ScissorsPaperRock.unity"),
                 new SceneData("Typing", "Assets/Scenes/Keyboard.unity"),
                 new SceneData("3DObject", "Assets/Scenes/3DObjectManipulation.unity"),
-                new SceneData("2DPanel", "Assets/Scenes/2DPanel.unity")
+                new SceneData("2DPanel", "Assets/Scenes/2DPanel.unity"),
+
+                new SceneData("BoardGame", "Assets/Scenes/BoardGame.unity")
             };
         }
 
