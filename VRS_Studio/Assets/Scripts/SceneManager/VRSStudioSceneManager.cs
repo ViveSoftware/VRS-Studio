@@ -128,7 +128,7 @@ public class VRSStudioSceneManager : MonoBehaviour
 	private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
 	{
 		Log.d(LOG_TAG, "OnSceneLoaded: " + scene.name);
-		if (scene.name.Equals(currentContentScenePath))
+		if (currentContentScenePath.Contains(scene.name))
 		{
 			isLoadingScene = false;
 		}
