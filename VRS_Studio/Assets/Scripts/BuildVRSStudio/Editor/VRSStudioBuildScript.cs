@@ -22,7 +22,7 @@ namespace VRSStudio.Build.Editor
         private static string buildCompanyName = "HTC Corp.";
         private static string buildProductName = "VRS Studio";
         private static string buildPackageName = "com.htc.vrs.vrsstudio";
-        private static string buildVersion = "0.0.2";
+        private static string buildVersion = "0.0.3a";
         private static AndroidArchitecture buildAndroidArchitecture = AndroidArchitecture.None;
         private static ScriptingImplementation buildScriptingBackEnd = ScriptingImplementation.IL2CPP;
         private static ManagedStrippingLevel buildManagedStrippingLevel = ManagedStrippingLevel.Disabled;

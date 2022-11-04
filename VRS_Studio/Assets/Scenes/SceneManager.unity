@@ -131,6 +131,7 @@ GameObject:
   m_Component:
   - component: {fileID: 939909985}
   - component: {fileID: 939909986}
+  - component: {fileID: 939909987}
   m_Layer: 0
   m_Name: SceneManager
   m_TagString: Untagged
@@ -164,11 +165,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b90a2fee26a9d69498ced791557ca276, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DemoAppEnvironmentScenePath: Assets/Scenes/BaseScene.unity
-  NavMenuScenePath: Assets/Scenes/NavMenu.unity
-  EntranceContentScenePath: Assets/Scenes/Entrance.unity
-  TutorialContentScenePath: Assets/Scenes/TrackingBoundaryGuide.unity
-  RobotAssistantScenePath: Assets/Scenes/RobotAssistant.unity
+--- !u!114 &939909987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 939909984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86db2aaf292a9d846b0f4e2f813dd43e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1516567438
 GameObject:
   m_ObjectHideFlags: 0
@@ -225,3 +233,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58eea4ac45cd1334c9ce3ae2ad5870ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ExitAppEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  TurnOnPassthroughEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  TurnOffPassthroughEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  WakeUpEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  UnknownIntent:
+    m_PersistentCalls:
+      m_Calls: []
