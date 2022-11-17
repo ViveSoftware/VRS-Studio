@@ -20,5 +20,7 @@ public class VRSStudioCameraRig : MonoBehaviour
         {
             HMD = Camera.main.gameObject;
         }
+
+        Wave.Native.Interop.WVR_SetAMCMode(Wave.Native.WVR_AMCMode.Force_PMC);
     }
 }
