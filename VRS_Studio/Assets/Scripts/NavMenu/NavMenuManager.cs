@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using Wave.Essence.Hand;
+using Wave.Essence.Hand.NearInteraction.Extend;
 using Wave.Essence.Hand.NearInteraction;
 using Wave.Native;
 

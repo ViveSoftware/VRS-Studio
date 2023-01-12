@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-using Wave.Essence.Hand.NearInteraction;
+using Wave.Essence.Hand.NearInteraction.Extend;
 using Wave.Native;
 
 public class CustomHandStateManager : MonoBehaviour
