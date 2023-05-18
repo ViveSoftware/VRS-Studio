@@ -10,22 +10,14 @@
 
 using UnityEngine;
 using UnityEngine.UI;
-using Wave.Native;
 using Wave.Essence.Hand.StaticGesture;
 
-namespace Wave.Essence.Interaction.Mode.Demo
+namespace Wave.Essence.Hand.Model.Demo
 {
 	[DisallowMultipleComponent]
 	[RequireComponent(typeof(Text))]
 	sealed class StaticDualHandGestureText : MonoBehaviour
 	{
-		const string LOG_TAG = "Wave.Essence.Interaction.Mode.Demo.StaticDualHandGestureText";
-		private void DEBUG(string msg)
-		{
-			if (Log.EnableDebugLog)
-				Log.d(LOG_TAG, msg, true);
-		}
-
 		private Text m_Text = null;
 
 		void Start()

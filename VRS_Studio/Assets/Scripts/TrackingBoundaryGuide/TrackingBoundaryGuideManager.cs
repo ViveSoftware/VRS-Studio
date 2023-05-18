@@ -9,7 +9,6 @@ public class TrackingBoundaryGuideManager : MonoBehaviour
 	public static TrackingBoundaryGuideManager Instance = null;
 
 	public List<HandContainer> ContainerList;
-	//public GameObject PrecautionSprite;
 	public Text InstructionText;
 	public TabGroup InstructionPanelTabGroup;
 	public Animator InstructionPanelAnimator;
@@ -82,7 +81,6 @@ public class TrackingBoundaryGuideManager : MonoBehaviour
 
 	private void OnDestroy()
 	{
-		//HandInteractionCameraRig.Instance.BoundaryBarrier.SetActive(false);
 		isGuideRunning = false;
 	}
 
@@ -142,88 +140,11 @@ public class TrackingBoundaryGuideManager : MonoBehaviour
 
 		NextButton.gameObject.SetActive(true);
 		NextButton.OnButtonAnimationCompleteCallback_Pressed += DisableNextButton;
-		NextButton.OnButtonAnimationCompleteCallback_Pressed += GuideStageThreeStart;
+		NextButton.OnButtonAnimationCompleteCallback_Pressed += GuideStageFiveStart;
 		NextButton.DeselectButton();
 
 		isContainerStageOver = true;
 		guideStageTwoEnd_Completed = true;
-	}
-
-	bool guideStageThreeStart_Completed = false;
-	public void GuideStageThreeStart()
-	{
-		if (guideStageThreeStart_Completed) return;
-
-		NextButton.OnButtonAnimationCompleteCallback_Pressed -= GuideStageThreeStart;
-		CustomHandStateManager.ChangeCustomHandStateManagerState(true);
-		CustomHandStateManager.Instance.HandDistanceStateChangeCallback += GuideStageThreeTrigger;
-		currInstructionPanelIndex = 3;
-		InstructionPanelTabGroup.tabButtons[currInstructionPanelIndex].Select(); //Tab 4
-		guideStageThreeStart_Completed = true;
-	}
-
-	bool GuideStageThreeTriggered = false;
-	public void GuideStageThreeTrigger(CustomHandState state)
-	{
-		if (state.handDistanceState == CustomHandState.HandStateFlags.DistanceWarning && !GuideStageThreeTriggered)
-		{
-			GuideStageThreeTriggered = true;
-			CustomHandStateManager.Instance.HandDistanceStateChangeCallback -= GuideStageThreeTrigger;
-			GuideStageThreeEnd();
-		}
-	}
-
-	bool guideStageThreeEnd_Completed = false;
-	public void GuideStageThreeEnd()
-	{
-		if (guideStageThreeEnd_Completed) return;
-
-		currInstructionPanelIndex = 4;
-		InstructionPanelTabGroup.tabButtons[currInstructionPanelIndex].Select(); //Tab 5
-		NextButton.OnButtonAnimationCompleteCallback_Pressed += GuideStageFourStart;
-		NextButton.gameObject.SetActive(true);
-		NextButton.DeselectButton();
-		guideStageThreeEnd_Completed = true;
-	}
-
-	bool guideStageFourStart_Completed = false;
-	public void GuideStageFourStart()
-	{
-		if (guideStageFourStart_Completed) return;
-
-		currInstructionPanelIndex = 5;
-		NextButton.OnButtonAnimationCompleteCallback_Pressed -= GuideStageFourStart;
-		CustomHandStateManager.Instance.HandBoundaryStateChangeCallback += GuideStageFourTrigger;
-		InstructionPanelTabGroup.tabButtons[currInstructionPanelIndex].Select(); //Tab 6
-
-		guideStageFourStart_Completed = true;
-	}
-
-	bool GuideStageFourTriggered = false;
-	public void GuideStageFourTrigger(CustomHandState state)
-	{
-		if (state.handBoundaryState == CustomHandState.HandStateFlags.BoundaryWarning && !GuideStageFourTriggered)
-		{
-			GuideStageFourTriggered = true;
-			CustomHandStateManager.Instance.HandBoundaryStateChangeCallback -= GuideStageFourTrigger;
-			GuideStageFourEnd();
-		}
-	}
-
-	bool guideStageFourEnd_Completed = false;
-	public void GuideStageFourEnd()
-	{
-		if (guideStageFourEnd_Completed) return;
-
-		currInstructionPanelIndex = 6;
-		InstructionPanelTabGroup.tabButtons[currInstructionPanelIndex].Select(); //Tab 7
-		NextButton.OnButtonAnimationCompleteCallback_Pressed += NextButton.DeselectButton;
-		//NextButton.OnButtonAnimationCompleteCallback_Pressed -= DisableNextButton;
-		NextButton.gameObject.SetActive(true);
-		NextButton.DeselectButton();
-		NextButton.OnButtonAnimationCompleteCallback_Pressed += GuideStageFiveStart;
-
-		guideStageFourEnd_Completed = true;
 	}
 
 	bool guideStageFiveStart_Completed = false;
@@ -233,29 +154,13 @@ public class TrackingBoundaryGuideManager : MonoBehaviour
 
 		CustomHandStateManager.ChangeCustomHandStateManagerState(false);
 		NextButton.OnButtonAnimationCompleteCallback_Pressed -= GuideStageFiveStart;
-		currInstructionPanelIndex = 7;
+		currInstructionPanelIndex = 3;
 		InstructionPanelTabGroup.tabButtons[currInstructionPanelIndex].Select(); //Tab 8
 		NextButton.OnButtonAnimationCompleteCallback_Pressed -= NextButton.DeselectButton;
-		//NextButton.OnButtonAnimationCompleteCallback_Pressed += DisableNextButton;
-		//NextButton.OnButtonAnimationCompleteCallback_Pressed += GuideStageFiveEnd;
 		EndOfGuide();
 
 		guideStageFiveStart_Completed = true;
 	}
-
-	//bool guideStageFiveEnd_Completed = false;
-	//public void GuideStageFiveEnd()
-	//{
-	//	if (guideStageFiveEnd_Completed) return;
-
-	//	currInstructionPanelIndex = 8;
-	//	InstructionPanelTabGroup.tabButtons[currInstructionPanelIndex].Select(); //Tab 9
-	//	EndOfGuide();
-	//	NextButton.OnButtonAnimationCompleteCallback_Pressed -= DisableNextButton;
-	//	NextButton.OnButtonAnimationCompleteCallback_Pressed -= GuideStageFiveEnd;
-
-	//	guideStageFiveEnd_Completed = true;
-	//}
 
 	private void EndOfGuide()
 	{
