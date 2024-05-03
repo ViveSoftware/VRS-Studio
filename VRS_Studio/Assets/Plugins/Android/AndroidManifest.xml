@@ -19,16 +19,18 @@
             <meta-data android:name="unityplayer.UnityActivity" android:value="true" />
             <meta-data android:name="unityplayer.SkipPermissionsDialog" android:value="true" />
         </activity>
+
+        <meta-data android:name="com.htc.vr.content.NumDoFHmd" android:value="6DoF"/>
+        <meta-data android:name="com.htc.vr.content.NumDoFController" android:value="6DoF"/>
+        <meta-data android:name="com.htc.vr.content.NumController" android:value="2"/>
     </application>
 
     <!-- <uses-permission android:name="android.permission.CAMERA" /> -->
     <!-- <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /> -->
-
-    <uses-permission android:name="vive.wave.vr.oem.data.OEMDataRead" />
-    <uses-permission android:name="vive.wave.vr.oem.data.OEMDataWrite" />
 	
-	<uses-feature
-	    android:name="wave.feature.handtracking"
-		android:required="true"	/>
+    <uses-feature android:name="wave.feature.handtracking" android:required="true"	/>
+    <uses-feature android:name="wave.feature.tracker" android:required="true" />
+    <uses-feature android:name="wave.feature.eyetracking" android:required="true" />
+    <uses-feature android:name="wave.feature.lipexpression" android:required="true" />
 </manifest>
 
