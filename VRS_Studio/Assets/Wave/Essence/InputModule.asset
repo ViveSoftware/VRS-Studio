@@ -16,3 +16,5 @@ MonoBehaviour:
   importedInputModulePackage: 1
   importedHandModelPackage: 0
   importedInteractionModePackage: 0
+  importedTrackerModelPackage: 0
+  importedBodyTrackingPackage: 0

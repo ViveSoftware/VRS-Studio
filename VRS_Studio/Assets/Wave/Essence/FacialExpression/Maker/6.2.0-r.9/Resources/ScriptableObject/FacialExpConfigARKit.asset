@@ -1,0 +1,1005 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 196264f670d312b43b5471a5163060f9, type: 3}
+  m_Name: FacialExpConfigARKit
+  m_EditorClassIdentifier: 
+  OriginalNodeNew:
+    LinkingExpNodes:
+    - OriginalName: LEFT_BLINK
+      BlendShapeSets:
+      - BSName: eyeBlinkLeft
+        Weight: 100
+        BSId: 61
+        Inport: Element0
+        poistion:
+          serializedVersion: 2
+          x: 514
+          y: 17
+          width: 240
+          height: 84
+      NotNull: 1
+    - OriginalName: LEFT_WIDE
+      BlendShapeSets:
+      - BSName: eyeWideLeft
+        Weight: 100
+        BSId: 73
+        Inport: Element0
+        poistion:
+          serializedVersion: 2
+          x: 798
+          y: 17
+          width: 240
+          height: 84
+      NotNull: 1
+    - OriginalName: RIGHT_BLINK
+      BlendShapeSets:
+      - BSName: eyeBlinkRight
+        Weight: 100
+        BSId: 62
+        Inport: Element0
+        poistion:
+          serializedVersion: 2
+          x: 514
+          y: 91
+          width: 240
+          height: 84
+      NotNull: 1
+    - OriginalName: RIGHT_WIDE
+      BlendShapeSets:
+      - BSName: eyeWideRight
+        Weight: 100
+        BSId: 74
+        Inport: Element0
+        poistion:
+          serializedVersion: 2
+          x: 798
+          y: 101
+          width: 240
+          height: 84
+      NotNull: 1
+    - OriginalName: LEFT_SQUEEZE
+      BlendShapeSets:
+      - BSName: eyeSquintLeft
+        Weight: 100
+        BSId: 71
+        Inport: Element0
+        poistion:
+          serializedVersion: 2
+          x: 514
+          y: 175
+          width: 240
+          height: 84
+      NotNull: 1
+    - OriginalName: RIGHT_SQUEEZE
+      BlendShapeSets:
+      - BSName: eyeSquintRight
+        Weight: 100
+        BSId: 72
+        Inport: Element0
+        poistion:
+          serializedVersion: 2
+          x: 798
+          y: 185
+          width: 240
+          height: 84
+      NotNull: 1
+    - OriginalName: LEFT_DOWN
+      BlendShapeSets:
+      - BSName: eyeLookDownLeft
+        Weight: 100
+        BSId: 63
+        Inport: Element0
+        poistion:
+          serializedVersion: 2
+          x: 514
+          y: 259
+          width: 240
+          height: 84
+      NotNull: 1
+    - OriginalName: RIGHT_DOWN
+      BlendShapeSets:
+      - BSName: eyeLookDownRight
+        Weight: 100
+        BSId: 64
+        Inport: Element0
+        poistion:
+          serializedVersion: 2
+          x: 798
+          y: 259
+          width: 240
+          height: 84
+      NotNull: 1
+    - OriginalName: LEFT_OUT
+      BlendShapeSets:
+      - BSName: eyeLookOutLeft
+        Weight: 100
+        BSId: 67
+        Inport: Element0
+        poistion:
+          serializedVersion: 2
+          x: 514
+          y: 343
+          width: 240
+          height: 84
+      NotNull: 1
+    - OriginalName: RIGHT_IN
+      BlendShapeSets:
+      - BSName: eyeLookInRight
+        Weight: 100
+        BSId: 66
+        Inport: Element0
+        poistion:
+          serializedVersion: 2
+          x: 798
+          y: 343
+          width: 240
+          height: 84
+      NotNull: 1
+    - OriginalName: LEFT_IN
+      BlendShapeSets:
+      - BSName: eyeLookInLeft
+        Weight: 100
+        BSId: 65
+        Inport: Element0
+        poistion:
+          serializedVersion: 2
+          x: 514
+          y: 426
+          width: 240
+          height: 84
+      NotNull: 1
+    - OriginalName: RIGHT_OUT
+      BlendShapeSets:
+      - BSName: eyeLookOutRight
+        Weight: 100
+        BSId: 68
+        Inport: Element0
+        poistion:
+          serializedVersion: 2
+          x: 798
+          y: 426
+          width: 240
+          height: 84
+      NotNull: 1
+    - OriginalName: LEFT_UP
+      BlendShapeSets:
+      - BSName: eyeLookUpLeft
+        Weight: 100
+        BSId: 69
+        Inport: Element0
+        poistion:
+          serializedVersion: 2
+          x: 514
+          y: 511
+          width: 240
+          height: 84
+      NotNull: 1
+    - OriginalName: RIGHT_UP
+      BlendShapeSets:
+      - BSName: eyeLookUpRight
+        Weight: 100
+        BSId: 70
+        Inport: Element0
+        poistion:
+          serializedVersion: 2
+          x: 798
+          y: 510
+          width: 240
+          height: 84
+      NotNull: 1
+    - OriginalName: Jaw_Right
+      BlendShapeSets:
+      - BSName: jawRight
+        Weight: 100
+        BSId: 78
+        Inport: Element0
+        poistion:
+          serializedVersion: 2
+          x: 1066
+          y: 310
+          width: 240
+          height: 84
+      NotNull: 1
+    - OriginalName: Jaw_Left
+      BlendShapeSets:
+      - BSName: jawLeft
+        Weight: 100
+        BSId: 76
+        Inport: Element0
+        poistion:
+          serializedVersion: 2
+          x: 1066
+          y: 394
+          width: 240
+          height: 84
+      NotNull: 1
+    - OriginalName: Jaw_Forward
+      BlendShapeSets:
+      - BSName: jawForward
+        Weight: 100
+        BSId: 75
+        Inport: Element0
+        poistion:
+          serializedVersion: 2
+          x: 1066
+          y: 561
+          width: 240
+          height: 84
+      NotNull: 1
+    - OriginalName: Jaw_Open
+      BlendShapeSets:
+      - BSName: jawOpen
+        Weight: 100
+        BSId: 77
+        Inport: Element0
+        poistion:
+          serializedVersion: 2
+          x: 1066
+          y: 478
+          width: 240
+          height: 84
+      NotNull: 1
+    - OriginalName: 
+      BlendShapeSets: []
+      NotNull: 0
+    - OriginalName: Mouth_Upper_Right
+      BlendShapeSets:
+      - BSName: mouthRight
+        Weight: 100
+        BSId: 91
+        Inport: Element0
+        poistion:
+          serializedVersion: 2
+          x: 514
+          y: 575
+          width: 240
+          height: 84
+      NotNull: 1
+    - OriginalName: Mouth_Upper_Left
+      BlendShapeSets:
+      - BSName: mouthLeft
+        Weight: 100
+        BSId: 85
+        Inport: Element0
+        poistion:
+          serializedVersion: 2
+          x: 798
+          y: 594
+          width: 240
+          height: 84
+      NotNull: 1
+    - OriginalName: Mouth_Lower_Right
+      BlendShapeSets:
+      - BSName: mouthRight
+        Weight: 100
+        BSId: 91
+        Inport: Element0
+        poistion:
+          serializedVersion: 2
+          x: 514
+          y: 575
+          width: 240
+          height: 84
+      NotNull: 1
+    - OriginalName: Mouth_Lower_Left
+      BlendShapeSets:
+      - BSName: mouthLeft
+        Weight: 100
+        BSId: 85
+        Inport: Element0
+        poistion:
+          serializedVersion: 2
+          x: 798
+          y: 594
+          width: 240
+          height: 84
+      NotNull: 1
+    - OriginalName: 
+      BlendShapeSets: []
+      NotNull: 0
+    - OriginalName: 
+      BlendShapeSets: []
+      NotNull: 0
+    - OriginalName: Mouth_Pout
+      BlendShapeSets:
+      - BSName: mouthPucker
+        Weight: 100
+        BSId: 90
+        Inport: Element0
+        poistion:
+          serializedVersion: 2
+          x: 1066
+          y: 645
+          width: 240
+          height: 84
+      NotNull: 1
+    - OriginalName: Mouth_Smile_Right
+      BlendShapeSets:
+      - BSName: mouthSmileRight
+        Weight: 100
+        BSId: 97
+        Inport: Element0
+        poistion:
+          serializedVersion: 2
+          x: 514
+          y: 648
+          width: 240
+          height: 84
+      - BSName: mouthPressRight
+        Weight: 0
+        BSId: 89
+        Inport: Element0
+        poistion:
+          serializedVersion: 2
+          x: 514
+          y: 1138
+          width: 240
+          height: 84
+      NotNull: 1
+    - OriginalName: Mouth_Smile_Left
+      BlendShapeSets:
+      - BSName: mouthSmileLeft
+        Weight: 100
+        BSId: 96
+        Inport: Element0
+        poistion:
+          serializedVersion: 2
+          x: 798
+          y: 667
+          width: 240
+          height: 84
+      - BSName: mouthPressLeft
+        Weight: 0
+        BSId: 88
+        Inport: Element0
+        poistion:
+          serializedVersion: 2
+          x: 514
+          y: 1062
+          width: 240
+          height: 84
+      NotNull: 1
+    - OriginalName: Mouth_Sad_Right
+      BlendShapeSets:
+      - BSName: mouthFrownRight
+        Weight: 100
+        BSId: 83
+        Inport: Element0
+        poistion:
+          serializedVersion: 2
+          x: 514
+          y: 744
+          width: 240
+          height: 84
+      - BSName: mouthStretchRight
+        Weight: 0
+        BSId: 99
+        Inport: Element0
+        poistion:
+          serializedVersion: 2
+          x: 1066
+          y: 1038
+          width: 240
+          height: 84
+      NotNull: 1
+    - OriginalName: Mouth_Sad_Left
+      BlendShapeSets:
+      - BSName: mouthFrownLeft
+        Weight: 99.19
+        BSId: 82
+        Inport: Element0
+        poistion:
+          serializedVersion: 2
+          x: 798
+          y: 760
+          width: 240
+          height: 84
+      - BSName: mouthStretchLeft
+        Weight: 0
+        BSId: 98
+        Inport: Element0
+        poistion:
+          serializedVersion: 2
+          x: 1066
+          y: 954
+          width: 240
+          height: 84
+      NotNull: 1
+    - OriginalName: Cheek_Puff_Right
+      BlendShapeSets:
+      - BSName: cheekPuff
+        Weight: 100
+        BSId: 58
+        Inport: Element0
+        poistion:
+          serializedVersion: 2
+          x: 1066
+          y: 813
+          width: 240
+          height: 84
+      NotNull: 1
+    - OriginalName: Cheek_Puff_Left
+      BlendShapeSets:
+      - BSName: cheekPuff
+        Weight: 100
+        BSId: 58
+        Inport: Element0
+        poistion:
+          serializedVersion: 2
+          x: 1066
+          y: 813
+          width: 240
+          height: 84
+      NotNull: 1
+    - OriginalName: 
+      BlendShapeSets: []
+      NotNull: 0
+    - OriginalName: Mouth_Upper_UpRight
+      BlendShapeSets:
+      - BSName: mouthUpperUpRight
+        Weight: 100
+        BSId: 101
+        Inport: Element0
+        poistion:
+          serializedVersion: 2
+          x: 514
+          y: 828
+          width: 240
+          height: 84
+      NotNull: 1
+    - OriginalName: Mouth_Upper_UpLeft
+      BlendShapeSets:
+      - BSName: mouthUpperUpLeft
+        Weight: 100
+        BSId: 100
+        Inport: Element0
+        poistion:
+          serializedVersion: 2
+          x: 798
+          y: 844
+          width: 240
+          height: 84
+      NotNull: 1
+    - OriginalName: Mouth_Lower_DownRight
+      BlendShapeSets:
+      - BSName: mouthLowerDownRight
+        Weight: 100
+        BSId: 87
+        Inport: Element0
+        poistion:
+          serializedVersion: 2
+          x: 514
+          y: 904
+          width: 240
+          height: 84
+      NotNull: 1
+    - OriginalName: Mouth_Lower_DownLeft
+      BlendShapeSets:
+      - BSName: mouthLowerDownLeft
+        Weight: 100
+        BSId: 86
+        Inport: Element0
+        poistion:
+          serializedVersion: 2
+          x: 798
+          y: 928
+          width: 240
+          height: 84
+      NotNull: 1
+    - OriginalName: Mouth_Upper_Inside
+      BlendShapeSets:
+      - BSName: mouthRollUpper
+        Weight: 100
+        BSId: 93
+        Inport: Element0
+        poistion:
+          serializedVersion: 2
+          x: 514
+          y: 978
+          width: 240
+          height: 84
+      NotNull: 1
+    - OriginalName: Mouth_Lower_Inside
+      BlendShapeSets:
+      - BSName: mouthRollLower
+        Weight: 100
+        BSId: 92
+        Inport: Element0
+        poistion:
+          serializedVersion: 2
+          x: 798
+          y: 1012
+          width: 240
+          height: 84
+      NotNull: 1
+    - OriginalName: Mouth_Lower_Overlay
+      BlendShapeSets:
+      - BSName: mouthShrugLower
+        Weight: 0
+        BSId: 94
+        Inport: Element0
+        poistion:
+          serializedVersion: 2
+          x: 798
+          y: 1169
+          width: 240
+          height: 84
+      - BSName: mouthShrugUpper
+        Weight: 0
+        BSId: 95
+        Inport: Element0
+        poistion:
+          serializedVersion: 2
+          x: 798
+          y: 1096
+          width: 240
+          height: 84
+      NotNull: 1
+    - OriginalName: 
+      BlendShapeSets: []
+      NotNull: 0
+    - OriginalName: 
+      BlendShapeSets: []
+      NotNull: 0
+    - OriginalName: 
+      BlendShapeSets: []
+      NotNull: 0
+    - OriginalName: 
+      BlendShapeSets: []
+      NotNull: 0
+    - OriginalName: 
+      BlendShapeSets: []
+      NotNull: 0
+    - OriginalName: 
+      BlendShapeSets: []
+      NotNull: 0
+    - OriginalName: 
+      BlendShapeSets: []
+      NotNull: 0
+    - OriginalName: 
+      BlendShapeSets: []
+      NotNull: 0
+    - OriginalName: 
+      BlendShapeSets: []
+      NotNull: 0
+    - OriginalName: 
+      BlendShapeSets: []
+      NotNull: 0
+    - OriginalName: 
+      BlendShapeSets: []
+      NotNull: 0
+    Position:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 400
+      height: 1277
+  GeneratedNodeNew:
+    TrackingExpNodes:
+    - OriginalBSNodeName: eyeBlinkLeft
+      BlendShapeSets:
+      - Inport: Element0
+        Weight: 100
+      IsLinking: 1
+      Position:
+        serializedVersion: 2
+        x: 514
+        y: 17
+        width: 240
+        height: 84
+    - OriginalBSNodeName: eyeWideLeft
+      BlendShapeSets:
+      - Inport: Element0
+        Weight: 100
+      IsLinking: 1
+      Position:
+        serializedVersion: 2
+        x: 798
+        y: 17
+        width: 240
+        height: 84
+    - OriginalBSNodeName: eyeBlinkRight
+      BlendShapeSets:
+      - Inport: Element0
+        Weight: 100
+      IsLinking: 1
+      Position:
+        serializedVersion: 2
+        x: 514
+        y: 91
+        width: 240
+        height: 84
+    - OriginalBSNodeName: eyeWideRight
+      BlendShapeSets:
+      - Inport: Element0
+        Weight: 100
+      IsLinking: 1
+      Position:
+        serializedVersion: 2
+        x: 798
+        y: 101
+        width: 240
+        height: 84
+    - OriginalBSNodeName: eyeSquintLeft
+      BlendShapeSets:
+      - Inport: Element0
+        Weight: 100
+      IsLinking: 1
+      Position:
+        serializedVersion: 2
+        x: 514
+        y: 175
+        width: 240
+        height: 84
+    - OriginalBSNodeName: eyeSquintRight
+      BlendShapeSets:
+      - Inport: Element0
+        Weight: 100
+      IsLinking: 1
+      Position:
+        serializedVersion: 2
+        x: 798
+        y: 185
+        width: 240
+        height: 84
+    - OriginalBSNodeName: eyeLookDownLeft
+      BlendShapeSets:
+      - Inport: Element0
+        Weight: 100
+      IsLinking: 1
+      Position:
+        serializedVersion: 2
+        x: 514
+        y: 259
+        width: 240
+        height: 84
+    - OriginalBSNodeName: eyeLookDownRight
+      BlendShapeSets:
+      - Inport: Element0
+        Weight: 100
+      IsLinking: 1
+      Position:
+        serializedVersion: 2
+        x: 798
+        y: 259
+        width: 240
+        height: 84
+    - OriginalBSNodeName: eyeLookOutLeft
+      BlendShapeSets:
+      - Inport: Element0
+        Weight: 100
+      IsLinking: 1
+      Position:
+        serializedVersion: 2
+        x: 514
+        y: 343
+        width: 240
+        height: 84
+    - OriginalBSNodeName: eyeLookInRight
+      BlendShapeSets:
+      - Inport: Element0
+        Weight: 100
+      IsLinking: 1
+      Position:
+        serializedVersion: 2
+        x: 798
+        y: 343
+        width: 240
+        height: 84
+    - OriginalBSNodeName: eyeLookInLeft
+      BlendShapeSets:
+      - Inport: Element0
+        Weight: 100
+      IsLinking: 1
+      Position:
+        serializedVersion: 2
+        x: 514
+        y: 426
+        width: 240
+        height: 84
+    - OriginalBSNodeName: eyeLookOutRight
+      BlendShapeSets:
+      - Inport: Element0
+        Weight: 100
+      IsLinking: 1
+      Position:
+        serializedVersion: 2
+        x: 798
+        y: 426
+        width: 240
+        height: 84
+    - OriginalBSNodeName: eyeLookUpLeft
+      BlendShapeSets:
+      - Inport: Element0
+        Weight: 100
+      IsLinking: 1
+      Position:
+        serializedVersion: 2
+        x: 514
+        y: 511
+        width: 240
+        height: 84
+    - OriginalBSNodeName: eyeLookUpRight
+      BlendShapeSets:
+      - Inport: Element0
+        Weight: 100
+      IsLinking: 1
+      Position:
+        serializedVersion: 2
+        x: 798
+        y: 510
+        width: 240
+        height: 84
+    - OriginalBSNodeName: jawRight
+      BlendShapeSets:
+      - Inport: Element0
+        Weight: 100
+      IsLinking: 1
+      Position:
+        serializedVersion: 2
+        x: 1066
+        y: 310
+        width: 240
+        height: 84
+    - OriginalBSNodeName: jawLeft
+      BlendShapeSets:
+      - Inport: Element0
+        Weight: 100
+      IsLinking: 1
+      Position:
+        serializedVersion: 2
+        x: 1066
+        y: 394
+        width: 240
+        height: 84
+    - OriginalBSNodeName: jawForward
+      BlendShapeSets:
+      - Inport: Element0
+        Weight: 100
+      IsLinking: 1
+      Position:
+        serializedVersion: 2
+        x: 1066
+        y: 561
+        width: 240
+        height: 84
+    - OriginalBSNodeName: jawOpen
+      BlendShapeSets:
+      - Inport: Element0
+        Weight: 100
+      IsLinking: 1
+      Position:
+        serializedVersion: 2
+        x: 1066
+        y: 478
+        width: 240
+        height: 84
+    - OriginalBSNodeName: mouthRight
+      BlendShapeSets:
+      - Inport: Element0
+        Weight: 100
+      IsLinking: 1
+      Position:
+        serializedVersion: 2
+        x: 514
+        y: 575
+        width: 240
+        height: 84
+    - OriginalBSNodeName: mouthLeft
+      BlendShapeSets:
+      - Inport: Element0
+        Weight: 100
+      IsLinking: 1
+      Position:
+        serializedVersion: 2
+        x: 798
+        y: 594
+        width: 240
+        height: 84
+    - OriginalBSNodeName: mouthPucker
+      BlendShapeSets:
+      - Inport: Element0
+        Weight: 100
+      IsLinking: 1
+      Position:
+        serializedVersion: 2
+        x: 1066
+        y: 645
+        width: 240
+        height: 84
+    - OriginalBSNodeName: mouthSmileRight
+      BlendShapeSets:
+      - Inport: Element0
+        Weight: 100
+      IsLinking: 1
+      Position:
+        serializedVersion: 2
+        x: 514
+        y: 648
+        width: 240
+        height: 84
+    - OriginalBSNodeName: mouthPressRight
+      BlendShapeSets:
+      - Inport: Element0
+        Weight: 0
+      IsLinking: 1
+      Position:
+        serializedVersion: 2
+        x: 514
+        y: 1138
+        width: 240
+        height: 84
+    - OriginalBSNodeName: mouthSmileLeft
+      BlendShapeSets:
+      - Inport: Element0
+        Weight: 100
+      IsLinking: 1
+      Position:
+        serializedVersion: 2
+        x: 798
+        y: 667
+        width: 240
+        height: 84
+    - OriginalBSNodeName: mouthPressLeft
+      BlendShapeSets:
+      - Inport: Element0
+        Weight: 0
+      IsLinking: 1
+      Position:
+        serializedVersion: 2
+        x: 514
+        y: 1062
+        width: 240
+        height: 84
+    - OriginalBSNodeName: mouthFrownRight
+      BlendShapeSets:
+      - Inport: Element0
+        Weight: 100
+      IsLinking: 1
+      Position:
+        serializedVersion: 2
+        x: 514
+        y: 744
+        width: 240
+        height: 84
+    - OriginalBSNodeName: mouthStretchRight
+      BlendShapeSets:
+      - Inport: Element0
+        Weight: 0
+      IsLinking: 1
+      Position:
+        serializedVersion: 2
+        x: 1066
+        y: 1038
+        width: 240
+        height: 84
+    - OriginalBSNodeName: mouthFrownLeft
+      BlendShapeSets:
+      - Inport: Element0
+        Weight: 99.19
+      IsLinking: 1
+      Position:
+        serializedVersion: 2
+        x: 798
+        y: 760
+        width: 240
+        height: 84
+    - OriginalBSNodeName: mouthStretchLeft
+      BlendShapeSets:
+      - Inport: Element0
+        Weight: 0
+      IsLinking: 1
+      Position:
+        serializedVersion: 2
+        x: 1066
+        y: 954
+        width: 240
+        height: 84
+    - OriginalBSNodeName: cheekPuff
+      BlendShapeSets:
+      - Inport: Element0
+        Weight: 100
+      IsLinking: 1
+      Position:
+        serializedVersion: 2
+        x: 1066
+        y: 813
+        width: 240
+        height: 84
+    - OriginalBSNodeName: mouthUpperUpRight
+      BlendShapeSets:
+      - Inport: Element0
+        Weight: 100
+      IsLinking: 1
+      Position:
+        serializedVersion: 2
+        x: 514
+        y: 828
+        width: 240
+        height: 84
+    - OriginalBSNodeName: mouthUpperUpLeft
+      BlendShapeSets:
+      - Inport: Element0
+        Weight: 100
+      IsLinking: 1
+      Position:
+        serializedVersion: 2
+        x: 798
+        y: 844
+        width: 240
+        height: 84
+    - OriginalBSNodeName: mouthLowerDownRight
+      BlendShapeSets:
+      - Inport: Element0
+        Weight: 100
+      IsLinking: 1
+      Position:
+        serializedVersion: 2
+        x: 514
+        y: 904
+        width: 240
+        height: 84
+    - OriginalBSNodeName: mouthLowerDownLeft
+      BlendShapeSets:
+      - Inport: Element0
+        Weight: 100
+      IsLinking: 1
+      Position:
+        serializedVersion: 2
+        x: 798
+        y: 928
+        width: 240
+        height: 84
+    - OriginalBSNodeName: mouthRollUpper
+      BlendShapeSets:
+      - Inport: Element0
+        Weight: 100
+      IsLinking: 1
+      Position:
+        serializedVersion: 2
+        x: 514
+        y: 978
+        width: 240
+        height: 84
+    - OriginalBSNodeName: mouthRollLower
+      BlendShapeSets:
+      - Inport: Element0
+        Weight: 100
+      IsLinking: 1
+      Position:
+        serializedVersion: 2
+        x: 798
+        y: 1012
+        width: 240
+        height: 84
+    - OriginalBSNodeName: mouthShrugLower
+      BlendShapeSets:
+      - Inport: Element0
+        Weight: 0
+      IsLinking: 1
+      Position:
+        serializedVersion: 2
+        x: 798
+        y: 1169
+        width: 240
+        height: 84
+    - OriginalBSNodeName: mouthShrugUpper
+      BlendShapeSets:
+      - Inport: Element0
+        Weight: 0
+      IsLinking: 1
+      Position:
+        serializedVersion: 2
+        x: 798
+        y: 1096
+        width: 240
+        height: 84

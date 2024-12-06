@@ -1,0 +1,552 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 196264f670d312b43b5471a5163060f9, type: 3}
+  m_Name: FacialExpConfigBase
+  m_EditorClassIdentifier: 
+  OriginalNodeNew:
+    LinkingExpNodes:
+    - OriginalName: LEFT_BLINK
+      BlendShapeSets:
+      - BSName: Fcl_EYE_Close_L
+        Weight: 100
+        BSId: 15
+        Inport: Element0
+        poistion:
+          serializedVersion: 2
+          x: 598
+          y: -5
+          width: 240
+          height: 84
+      NotNull: 1
+    - OriginalName: LEFT_WIDE
+      BlendShapeSets:
+      - BSName: Fcl_BRW_Surprised
+        Weight: 100
+        BSId: 10
+        Inport: Element0
+        poistion:
+          serializedVersion: 2
+          x: 598
+          y: 163
+          width: 240
+          height: 84
+      NotNull: 1
+    - OriginalName: RIGHT_BLINK
+      BlendShapeSets:
+      - BSName: Fcl_EYE_Close_R
+        Weight: 100
+        BSId: 14
+        Inport: Element0
+        poistion:
+          serializedVersion: 2
+          x: 598
+          y: 79
+          width: 240
+          height: 84
+      NotNull: 1
+    - OriginalName: RIGHT_WIDE
+      BlendShapeSets:
+      - BSName: Fcl_BRW_Surprised
+        Weight: 100
+        BSId: 10
+        Inport: Element0
+        poistion:
+          serializedVersion: 2
+          x: 598
+          y: 163
+          width: 240
+          height: 84
+      NotNull: 1
+    - OriginalName: LEFT_SQUEEZE
+      BlendShapeSets:
+      - BSName: Fcl_EYE_Close_L
+        Weight: 100
+        BSId: 15
+        Inport: Element0
+        poistion:
+          serializedVersion: 2
+          x: 598
+          y: -5
+          width: 240
+          height: 84
+      - BSName: Fcl_BRW_Angry
+        Weight: 100
+        BSId: 6
+        Inport: Element0
+        poistion:
+          serializedVersion: 2
+          x: 598
+          y: 247
+          width: 240
+          height: 115
+      NotNull: 1
+    - OriginalName: RIGHT_SQUEEZE
+      BlendShapeSets:
+      - BSName: Fcl_EYE_Close_R
+        Weight: 100
+        BSId: 14
+        Inport: Element0
+        poistion:
+          serializedVersion: 2
+          x: 598
+          y: 79
+          width: 240
+          height: 84
+      - BSName: Fcl_BRW_Angry
+        Weight: 100
+        BSId: 6
+        Inport: Element0
+        poistion:
+          serializedVersion: 2
+          x: 598
+          y: 247
+          width: 240
+          height: 115
+      NotNull: 1
+    - OriginalName: LEFT_DOWN
+      BlendShapeSets:
+      - BSName: Fcl_BRW_Joy
+        Weight: 100
+        BSId: 8
+        Inport: Element0
+        poistion:
+          serializedVersion: 2
+          x: 598
+          y: 362
+          width: 240
+          height: 115
+      NotNull: 1
+    - OriginalName: RIGHT_DOWN
+      BlendShapeSets:
+      - BSName: Fcl_BRW_Joy
+        Weight: 100
+        BSId: 8
+        Inport: Element0
+        poistion:
+          serializedVersion: 2
+          x: 598
+          y: 362
+          width: 240
+          height: 115
+      NotNull: 1
+    - OriginalName: 
+      BlendShapeSets: []
+      NotNull: 0
+    - OriginalName: RIGHT_IN
+      BlendShapeSets:
+      - BSName: Fcl_EYE_Close
+        Weight: 100
+        BSId: 13
+        Inport: Element0
+        poistion:
+          serializedVersion: 2
+          x: 879
+          y: 309
+          width: 240
+          height: 84
+      NotNull: 1
+    - OriginalName: LEFT_IN
+      BlendShapeSets:
+      - BSName: Fcl_EYE_Close
+        Weight: 100
+        BSId: 13
+        Inport: Element0
+        poistion:
+          serializedVersion: 2
+          x: 879
+          y: 309
+          width: 240
+          height: 84
+      NotNull: 1
+    - OriginalName: 
+      BlendShapeSets: []
+      NotNull: 0
+    - OriginalName: LEFT_UP
+      BlendShapeSets:
+      - BSName: Fcl_BRW_Angry
+        Weight: 50
+        BSId: 6
+        Inport: Element1
+        poistion:
+          serializedVersion: 2
+          x: 598
+          y: 247
+          width: 240
+          height: 115
+      - BSName: Fcl_BRW_Joy
+        Weight: 50
+        BSId: 8
+        Inport: Element1
+        poistion:
+          serializedVersion: 2
+          x: 598
+          y: 362
+          width: 240
+          height: 115
+      NotNull: 1
+    - OriginalName: RIGHT_UP
+      BlendShapeSets:
+      - BSName: Fcl_BRW_Angry
+        Weight: 50
+        BSId: 6
+        Inport: Element1
+        poistion:
+          serializedVersion: 2
+          x: 598
+          y: 247
+          width: 240
+          height: 115
+      - BSName: Fcl_BRW_Joy
+        Weight: 50
+        BSId: 8
+        Inport: Element1
+        poistion:
+          serializedVersion: 2
+          x: 598
+          y: 362
+          width: 240
+          height: 115
+      NotNull: 1
+    - OriginalName: 
+      BlendShapeSets: []
+      NotNull: 0
+    - OriginalName: 
+      BlendShapeSets: []
+      NotNull: 0
+    - OriginalName: 
+      BlendShapeSets: []
+      NotNull: 0
+    - OriginalName: Jaw_Open
+      BlendShapeSets:
+      - BSName: Fcl_MTH_A
+        Weight: 100
+        BSId: 39
+        Inport: Element0
+        poistion:
+          serializedVersion: 2
+          x: 879
+          y: 393
+          width: 240
+          height: 84
+      NotNull: 1
+    - OriginalName: 
+      BlendShapeSets: []
+      NotNull: 0
+    - OriginalName: 
+      BlendShapeSets: []
+      NotNull: 0
+    - OriginalName: 
+      BlendShapeSets: []
+      NotNull: 0
+    - OriginalName: 
+      BlendShapeSets: []
+      NotNull: 0
+    - OriginalName: 
+      BlendShapeSets: []
+      NotNull: 0
+    - OriginalName: 
+      BlendShapeSets: []
+      NotNull: 0
+    - OriginalName: 
+      BlendShapeSets: []
+      NotNull: 0
+    - OriginalName: Mouth_Pout
+      BlendShapeSets:
+      - BSName: Fcl_MTH_Close
+        Weight: 100
+        BSId: 25
+        Inport: Element0
+        poistion:
+          serializedVersion: 2
+          x: 598
+          y: 653
+          width: 240
+          height: 84
+      - BSName: Fcl_MTH_Small
+        Weight: 100
+        BSId: 29
+        Inport: Element0
+        poistion:
+          serializedVersion: 2
+          x: 598
+          y: 477
+          width: 240
+          height: 84
+      NotNull: 1
+    - OriginalName: Mouth_Smile_Right
+      BlendShapeSets:
+      - BSName: Fcl_MTH_Fun
+        Weight: 50
+        BSId: 32
+        Inport: Element0
+        poistion:
+          serializedVersion: 2
+          x: 598
+          y: 561
+          width: 240
+          height: 84
+      NotNull: 1
+    - OriginalName: Mouth_Smile_Left
+      BlendShapeSets:
+      - BSName: Fcl_MTH_Fun
+        Weight: 50
+        BSId: 32
+        Inport: Element0
+        poistion:
+          serializedVersion: 2
+          x: 598
+          y: 561
+          width: 240
+          height: 84
+      NotNull: 1
+    - OriginalName: Mouth_Sad_Right
+      BlendShapeSets:
+      - BSName: Fcl_MTH_Sorrow
+        Weight: 25
+        BSId: 34
+        Inport: Element0
+        poistion:
+          serializedVersion: 2
+          x: 879
+          y: 477
+          width: 240
+          height: 84
+      - BSName: Fcl_MTH_Close
+        Weight: 100
+        BSId: 25
+        Inport: Element0
+        poistion:
+          serializedVersion: 2
+          x: 598
+          y: 653
+          width: 240
+          height: 84
+      NotNull: 1
+    - OriginalName: Mouth_Sad_Left
+      BlendShapeSets:
+      - BSName: Fcl_MTH_Sorrow
+        Weight: 25
+        BSId: 34
+        Inport: Element0
+        poistion:
+          serializedVersion: 2
+          x: 879
+          y: 477
+          width: 240
+          height: 84
+      - BSName: Fcl_MTH_Close
+        Weight: 100
+        BSId: 25
+        Inport: Element0
+        poistion:
+          serializedVersion: 2
+          x: 598
+          y: 653
+          width: 240
+          height: 84
+      NotNull: 1
+    - OriginalName: 
+      BlendShapeSets: []
+      NotNull: 0
+    - OriginalName: 
+      BlendShapeSets: []
+      NotNull: 0
+    - OriginalName: 
+      BlendShapeSets: []
+      NotNull: 0
+    - OriginalName: 
+      BlendShapeSets: []
+      NotNull: 0
+    - OriginalName: 
+      BlendShapeSets: []
+      NotNull: 0
+    - OriginalName: 
+      BlendShapeSets: []
+      NotNull: 0
+    - OriginalName: 
+      BlendShapeSets: []
+      NotNull: 0
+    - OriginalName: 
+      BlendShapeSets: []
+      NotNull: 0
+    - OriginalName: 
+      BlendShapeSets: []
+      NotNull: 0
+    - OriginalName: 
+      BlendShapeSets: []
+      NotNull: 0
+    - OriginalName: 
+      BlendShapeSets: []
+      NotNull: 0
+    - OriginalName: 
+      BlendShapeSets: []
+      NotNull: 0
+    - OriginalName: 
+      BlendShapeSets: []
+      NotNull: 0
+    - OriginalName: 
+      BlendShapeSets: []
+      NotNull: 0
+    - OriginalName: 
+      BlendShapeSets: []
+      NotNull: 0
+    - OriginalName: 
+      BlendShapeSets: []
+      NotNull: 0
+    - OriginalName: 
+      BlendShapeSets: []
+      NotNull: 0
+    - OriginalName: 
+      BlendShapeSets: []
+      NotNull: 0
+    - OriginalName: 
+      BlendShapeSets: []
+      NotNull: 0
+    - OriginalName: 
+      BlendShapeSets: []
+      NotNull: 0
+    - OriginalName: 
+      BlendShapeSets: []
+      NotNull: 0
+    Position:
+      serializedVersion: 2
+      x: 91
+      y: -26
+      width: 400
+      height: 1277
+  GeneratedNodeNew:
+    TrackingExpNodes:
+    - OriginalBSNodeName: Fcl_EYE_Close_L
+      BlendShapeSets:
+      - Inport: Element0
+        Weight: 100
+      IsLinking: 1
+      Position:
+        serializedVersion: 2
+        x: 598
+        y: -5
+        width: 240
+        height: 84
+    - OriginalBSNodeName: Fcl_BRW_Surprised
+      BlendShapeSets:
+      - Inport: Element0
+        Weight: 100
+      IsLinking: 1
+      Position:
+        serializedVersion: 2
+        x: 598
+        y: 163
+        width: 240
+        height: 84
+    - OriginalBSNodeName: Fcl_EYE_Close_R
+      BlendShapeSets:
+      - Inport: Element0
+        Weight: 100
+      IsLinking: 1
+      Position:
+        serializedVersion: 2
+        x: 598
+        y: 79
+        width: 240
+        height: 84
+    - OriginalBSNodeName: Fcl_BRW_Angry
+      BlendShapeSets:
+      - Inport: Element0
+        Weight: 100
+      - Inport: Element1
+        Weight: 50
+      IsLinking: 1
+      Position:
+        serializedVersion: 2
+        x: 598
+        y: 247
+        width: 240
+        height: 115
+    - OriginalBSNodeName: Fcl_BRW_Joy
+      BlendShapeSets:
+      - Inport: Element0
+        Weight: 100
+      - Inport: Element1
+        Weight: 50
+      IsLinking: 1
+      Position:
+        serializedVersion: 2
+        x: 598
+        y: 362
+        width: 240
+        height: 115
+    - OriginalBSNodeName: Fcl_EYE_Close
+      BlendShapeSets:
+      - Inport: Element0
+        Weight: 100
+      IsLinking: 1
+      Position:
+        serializedVersion: 2
+        x: 879
+        y: 309
+        width: 240
+        height: 84
+    - OriginalBSNodeName: Fcl_MTH_A
+      BlendShapeSets:
+      - Inport: Element0
+        Weight: 100
+      IsLinking: 1
+      Position:
+        serializedVersion: 2
+        x: 879
+        y: 393
+        width: 240
+        height: 84
+    - OriginalBSNodeName: Fcl_MTH_Close
+      BlendShapeSets:
+      - Inport: Element0
+        Weight: 100
+      IsLinking: 1
+      Position:
+        serializedVersion: 2
+        x: 598
+        y: 653
+        width: 240
+        height: 84
+    - OriginalBSNodeName: Fcl_MTH_Small
+      BlendShapeSets:
+      - Inport: Element0
+        Weight: 100
+      IsLinking: 1
+      Position:
+        serializedVersion: 2
+        x: 598
+        y: 477
+        width: 240
+        height: 84
+    - OriginalBSNodeName: Fcl_MTH_Fun
+      BlendShapeSets:
+      - Inport: Element0
+        Weight: 50
+      IsLinking: 1
+      Position:
+        serializedVersion: 2
+        x: 598
+        y: 561
+        width: 240
+        height: 84
+    - OriginalBSNodeName: Fcl_MTH_Sorrow
+      BlendShapeSets:
+      - Inport: Element0
+        Weight: 25
+      IsLinking: 1
+      Position:
+        serializedVersion: 2
+        x: 879
+        y: 477
+        width: 240
+        height: 84

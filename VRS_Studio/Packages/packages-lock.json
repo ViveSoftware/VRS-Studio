@@ -1,62 +1,47 @@
 {
   "dependencies": {
     "com.htc.upm.vive-input-utility": {
-      "version": "file:com.htc.upm.vive-input-utility@1.18.3",
+      "version": "1.20.2",
       "depth": 0,
-      "source": "embedded",
-      "dependencies": {}
+      "source": "registry",
+      "dependencies": {
+        "com.unity.ugui": "1.0.0"
+      },
+      "url": "https://npm-registry.vive.com"
     },
     "com.htc.upm.wave.essence": {
-      "version": "5.3.2-r.4",
+      "version": "https://github.com/ViveSoftware/VIVE-Wave.git?path=com.htc.upm.wave.essence",
       "depth": 0,
-      "source": "registry",
+      "source": "git",
       "dependencies": {
-        "com.htc.upm.wave.xrsdk": "5.3.2-r.4",
-        "com.htc.upm.wave.native": "5.3.2-r.4"
+        "com.htc.upm.wave.xrsdk": "6.2.0-r.9",
+        "com.htc.upm.wave.native": "6.2.0-r.9"
       },
-      "url": "https://npm-registry.vive.com"
+      "hash": "db1b6eb7b513e7324b93ea841e8ea5059d2225a0"
     },
     "com.htc.upm.wave.native": {
-      "version": "5.3.2-r.4",
+      "version": "https://github.com/ViveSoftware/VIVE-Wave.git?path=com.htc.upm.wave.native",
       "depth": 0,
-      "source": "registry",
+      "source": "git",
       "dependencies": {
-        "com.htc.upm.wave.xrsdk": "5.3.2-r.4"
+        "com.htc.upm.wave.xrsdk": "6.2.0-r.9"
       },
-      "url": "https://npm-registry.vive.com"
+      "hash": "db1b6eb7b513e7324b93ea841e8ea5059d2225a0"
     },
     "com.htc.upm.wave.xrsdk": {
-      "version": "5.3.2-r.4",
+      "version": "https://github.com/ViveSoftware/VIVE-Wave.git?path=com.htc.upm.wave.xrsdk",
       "depth": 0,
-      "source": "registry",
+      "source": "git",
       "dependencies": {
         "com.unity.xr.management": "3.2.4"
       },
-      "url": "https://npm-registry.vive.com"
-    },
-    "com.unity.collab-proxy": {
-      "version": "1.17.2",
-      "depth": 0,
-      "source": "registry",
-      "dependencies": {
-        "com.unity.services.core": "1.0.1"
-      },
-      "url": "https://packages.unity.com"
+      "hash": "db1b6eb7b513e7324b93ea841e8ea5059d2225a0"
     },
     "com.unity.ext.nunit": {
       "version": "1.0.6",
-      "depth": 1,
+      "depth": 2,
       "source": "registry",
       "dependencies": {},
-      "url": "https://packages.unity.com"
-    },
-    "com.unity.ide.rider": {
-      "version": "3.0.15",
-      "depth": 0,
-      "source": "registry",
-      "dependencies": {
-        "com.unity.ext.nunit": "1.0.6"
-      },
       "url": "https://packages.unity.com"
     },
     "com.unity.ide.visualstudio": {
@@ -75,25 +60,18 @@
       "dependencies": {},
       "url": "https://packages.unity.com"
     },
-    "com.unity.services.core": {
-      "version": "1.0.1",
-      "depth": 1,
+    "com.unity.subsystemregistration": {
+      "version": "1.1.0",
+      "depth": 2,
       "source": "registry",
       "dependencies": {
-        "com.unity.modules.unitywebrequest": "1.0.0"
+        "com.unity.modules.subsystems": "1.0.0"
       },
       "url": "https://packages.unity.com"
     },
-    "com.unity.subsystemregistration": {
-      "version": "1.0.6",
-      "depth": 2,
-      "source": "registry",
-      "dependencies": {},
-      "url": "https://packages.unity.com"
-    },
     "com.unity.test-framework": {
-      "version": "1.1.33",
-      "depth": 0,
+      "version": "1.1.31",
+      "depth": 1,
       "source": "registry",
       "dependencies": {
         "com.unity.ext.nunit": "1.0.6",
@@ -112,13 +90,13 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.timeline": {
-      "version": "1.4.8",
+      "version": "1.6.4",
       "depth": 0,
       "source": "registry",
       "dependencies": {
+        "com.unity.modules.audio": "1.0.0",
         "com.unity.modules.director": "1.0.0",
         "com.unity.modules.animation": "1.0.0",
-        "com.unity.modules.audio": "1.0.0",
         "com.unity.modules.particlesystem": "1.0.0"
       },
       "url": "https://packages.unity.com"
@@ -143,15 +121,15 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.xr.management": {
-      "version": "4.0.1",
+      "version": "4.2.0",
       "depth": 1,
       "source": "registry",
       "dependencies": {
-        "com.unity.modules.subsystems": "1.0.0",
         "com.unity.modules.vr": "1.0.0",
         "com.unity.modules.xr": "1.0.0",
-        "com.unity.xr.legacyinputhelpers": "2.1.7",
-        "com.unity.subsystemregistration": "1.0.6"
+        "com.unity.modules.subsystems": "1.0.0",
+        "com.unity.subsystemregistration": "1.0.6",
+        "com.unity.xr.legacyinputhelpers": "2.1.7"
       },
       "url": "https://packages.unity.com"
     },
