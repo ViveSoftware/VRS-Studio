@@ -119,7 +119,7 @@ public class GameManager : MonoBehaviour
                 RobotDicePoint = 0;
                 textRobotDicePoint.text = "0";
                 textPlayerDicePoint.text = "0";
-                RobotDicePointPanel.SetActive(false);                
+                RobotDicePointPanel.SetActive(false);
 
                 ModeSelect(2);
                 resultObj.position = new Vector3(0.9f, 1.2f, 0.35f);
@@ -130,7 +130,7 @@ public class GameManager : MonoBehaviour
             //robot will toss and change player's time
             if (gameState == GameState.Invalid)
             {
-                RobotAssistantManager.robotAssistantManagerInstance.ForceStopReaction();
+                RobotAssistantManager.Instance.ForceStopReaction();
                 StartCoroutine(DynamicPanelHint("Waiting for robot toss the dices", 1, 0));
                 if (time >= 0)
                 {
@@ -141,11 +141,8 @@ public class GameManager : MonoBehaviour
 
                 if (isRobotTossing == false)
                 {
-#if !VRSSTUDIO_INTERNAL
-                    RobotAssistantManager.robotAssistantManagerInstance.SetRobotPosition(new Vector3(-0.85f, 1.15f, 0.55f));
-#else
-                    RobotAssistantManager.robotAssistantManagerInstance.SetRobotPosition(new Vector3(-0.85f, 1f, 0.55f));
-#endif                    
+                    RobotAssistantManager.Instance.SetRobotPosition(new Vector3(-0.85f, 1f, 0.55f));
+
                     for (int a = 0; a < Dice.Length; a++)
                     {
                         Dice[a].transform.DOMove(new Vector3(InitDicePosition[a].x, InitDicePosition[a].y + 0.25f, InitDicePosition[a].z), 0.5f).SetDelay(2f);
@@ -159,11 +156,8 @@ public class GameManager : MonoBehaviour
                     return;
                 else
                 {
-#if !VRSSTUDIO_INTERNAL
-                    RobotAssistantManager.robotAssistantManagerInstance.SetRobotPosition(new Vector3(-1.175f, 1.15f, 0.7f));
-#else
-                    RobotAssistantManager.robotAssistantManagerInstance.SetRobotPosition(new Vector3(-1.175f, 1f, 0.7f));
-#endif                     
+                    RobotAssistantManager.Instance.SetRobotPosition(new Vector3(-1.175f, 1f, 0.7f));
+
                     textRobotDicePoint.text = RobotDicePoint.ToString();
                     RespwanDice(true);
                     gameState = GameState.Start;
@@ -182,29 +176,25 @@ public class GameManager : MonoBehaviour
                         resultPlayableDirectors[0].Play();
                         if (AudioPlayer.isPlaying) AudioPlayer.Stop();
                         AudioPlayer.PlayOneShot(VoiceClips[0]);
-#if !VRSSTUDIO_INTERNAL
-                        RobotAssistantManager.robotAssistantManagerInstance.TriggerReaction(RobotAssistantEnums.ReactionAnimationIndex.Angry);
-#else
-                        RobotAssistantManager.robotAssistantManagerInstance.TriggerReaction(RobotAssistantEnums.ReactionAnimationIndex.Scare);
-#endif
+
+                        RobotAssistantManager.Instance.TriggerReaction(RobotAssistantEnums.ReactionAnimationIndex.Scare);
+
                         break;
                     case ResultState.Lose:
                         resultObjs[1].SetActive(true);
                         resultPlayableDirectors[1].Play();
                         if (AudioPlayer.isPlaying) AudioPlayer.Stop();
                         AudioPlayer.PlayOneShot(VoiceClips[1]);
-#if !VRSSTUDIO_INTERNAL
-                        RobotAssistantManager.robotAssistantManagerInstance.TriggerReaction(RobotAssistantEnums.ReactionAnimationIndex.Happy);
-#else
-                        RobotAssistantManager.robotAssistantManagerInstance.TriggerReaction(RobotAssistantEnums.ReactionAnimationIndex.Clap);
-#endif
+
+                        RobotAssistantManager.Instance.TriggerReaction(RobotAssistantEnums.ReactionAnimationIndex.Clap);
+
                         break;
                     case ResultState.Tie:
                         resultObjs[2].SetActive(true);
                         resultPlayableDirectors[2].Play();
-#if VRSSTUDIO_INTERNAL
-                        RobotAssistantManager.robotAssistantManagerInstance.TriggerReaction(RobotAssistantEnums.ReactionAnimationIndex.ScratchHead);
-#endif
+
+                        RobotAssistantManager.Instance.TriggerReaction(RobotAssistantEnums.ReactionAnimationIndex.ScratchHead);
+
                         break;
                 }
                 time = 2.5f;
@@ -225,7 +215,7 @@ public class GameManager : MonoBehaviour
                     Panel[1].SetActive(true);
                     Panel[3].SetActive(false);
 
-                    RobotAssistantManager.robotAssistantManagerInstance.ForceStopReaction();
+                    RobotAssistantManager.Instance.ForceStopReaction();
 
                     for (int a = 0; a < 3; a++) resultObjs[a].SetActive(false);
 
@@ -254,7 +244,7 @@ public class GameManager : MonoBehaviour
                 //reset poker mode
                 ResetCardDeck();
                 CardDeck.DOLocalMove(new Vector3(0.55f, 0.96f, 0.55f), 0.25f);
-                
+
                 ModeSelect(1);
                 resultObj.position = new Vector3(-0.85f, 1.2f, 0.55f);
                 resultObj.eulerAngles = new Vector3(0, -65f, 0);
@@ -307,22 +297,18 @@ public class GameManager : MonoBehaviour
                         resultPlayableDirectors[0].Play();
                         if (AudioPlayer.isPlaying) AudioPlayer.Stop();
                         AudioPlayer.PlayOneShot(VoiceClips[0]);
-#if !VRSSTUDIO_INTERNAL
-                        RobotAssistantManager.robotAssistantManagerInstance.TriggerReaction(RobotAssistantEnums.ReactionAnimationIndex.Angry);
-#else
-                        RobotAssistantManager.robotAssistantManagerInstance.TriggerReaction(RobotAssistantEnums.ReactionAnimationIndex.Scare);
-#endif
+
+                        RobotAssistantManager.Instance.TriggerReaction(RobotAssistantEnums.ReactionAnimationIndex.Scare);
+
                         break;
                     case ResultState.Lose:
                         resultObjs[1].SetActive(true);
                         resultPlayableDirectors[1].Play();
                         if (AudioPlayer.isPlaying) AudioPlayer.Stop();
                         AudioPlayer.PlayOneShot(VoiceClips[1]);
-#if !VRSSTUDIO_INTERNAL
-                        RobotAssistantManager.robotAssistantManagerInstance.TriggerReaction(RobotAssistantEnums.ReactionAnimationIndex.Happy);
-#else
-                        RobotAssistantManager.robotAssistantManagerInstance.TriggerReaction(RobotAssistantEnums.ReactionAnimationIndex.Clap);
-#endif
+
+                        RobotAssistantManager.Instance.TriggerReaction(RobotAssistantEnums.ReactionAnimationIndex.Clap);
+
                         break;
                     case ResultState.Tie:
                         resultObjs[2].SetActive(true);
@@ -348,7 +334,7 @@ public class GameManager : MonoBehaviour
                     Panel[2].SetActive(true);
                     Panel[4].SetActive(false);
 
-                    RobotAssistantManager.robotAssistantManagerInstance.ForceStopReaction();
+                    RobotAssistantManager.Instance.ForceStopReaction();
 
                     for (int a = 0; a < 3; a++) resultObjs[a].SetActive(false);
 
@@ -410,11 +396,8 @@ public class GameManager : MonoBehaviour
             CatchManager.enabled = true;
             PokerManager.enabled = false;
             RobotDicePointPanel.SetActive(true);
-#if !VRSSTUDIO_INTERNAL
-            RobotAssistantManager.robotAssistantManagerInstance.SetRobotPosition(new Vector3(-1.175f, 1.15f, 0.7f));
-#else
-            RobotAssistantManager.robotAssistantManagerInstance.SetRobotPosition(new Vector3(-1.175f, 1f, 0.7f));
-#endif
+            RobotAssistantManager.Instance.SetRobotPosition(new Vector3(-1.175f, 1.15f, 0.7f));
+
             gameMode = GameMode.DiceMode;
             time = 3f;
         }
@@ -422,11 +405,8 @@ public class GameManager : MonoBehaviour
         {
             CatchManager.enabled = false;
             PokerManager.enabled = true;
-#if !VRSSTUDIO_INTERNAL
-            RobotAssistantManager.robotAssistantManagerInstance.SetRobotPosition(new Vector3(1.35f, 1.15f, 0.55f),DealCards);
-#else
-            RobotAssistantManager.robotAssistantManagerInstance.SetRobotPosition(new Vector3(1.35f, 1f, 0.55f), DealCards);
-#endif
+            RobotAssistantManager.Instance.SetRobotPosition(new Vector3(1.35f, 1.15f, 0.55f), DealCards);
+
             gameMode = GameMode.PokerMode;
         }
         gameState = GameState.Invalid;
@@ -447,11 +427,8 @@ public class GameManager : MonoBehaviour
     }
     private void RobotTossDice()
     {
-#if !VRSSTUDIO_INTERNAL
-        RobotAssistantManager.robotAssistantManagerInstance.TriggerReaction(RobotAssistantEnums.ReactionAnimationIndex.Happy);
-#else
-        RobotAssistantManager.robotAssistantManagerInstance.TriggerReaction(RobotAssistantEnums.ReactionAnimationIndex.Clap);
-#endif
+        RobotAssistantManager.Instance.TriggerReaction(RobotAssistantEnums.ReactionAnimationIndex.Clap);
+
         for (int a = 0; a < Dice.Length; a++)
         {
             Dice[a].GetComponent<Rigidbody>().isKinematic = false;
@@ -471,7 +448,7 @@ public class GameManager : MonoBehaviour
     }
 
     private void ResetCardDeck()
-    {        
+    {
         DOTween.CompleteAll();
         //get card back not catching in change mode
         if (RobotCard != null)

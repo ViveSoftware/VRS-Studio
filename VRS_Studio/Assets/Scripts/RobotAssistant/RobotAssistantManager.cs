@@ -2,15 +2,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Wave.Native;
 
 public class RobotAssistantManager : MonoBehaviour
 {
-    private static RobotAssistantManager Instance;
-    public static RobotAssistantManager robotAssistantManagerInstance { get { return Instance; } private set { Instance = value; } }
+    private static RobotAssistantManager instance;
+    public static RobotAssistantManager Instance { get { return instance; } private set { instance = value; } }
 
     [SerializeField] private RobotAssistantSpeechBubble robotAssistantSpeechBubbleInstance;
     public RobotAssistantSpeechBubble robotAssistantSpeechBubble { get { return robotAssistantSpeechBubbleInstance; } private set { robotAssistantSpeechBubbleInstance = value; } }
+
+    [SerializeField] private RobotAssistantAudioSource robotAssistantAudioSourceInstance;
+    public RobotAssistantAudioSource robotAssistantAudioSource { get { return robotAssistantAudioSourceInstance; } private set { robotAssistantAudioSourceInstance = value; } }
 
     public Animator robotAssistantAnimator;
     [Header("Teleportation")]
@@ -42,7 +44,7 @@ public class RobotAssistantManager : MonoBehaviour
 
     private void Awake()
     {
-        robotAssistantManagerInstance = this;
+        Instance = this;
     }
 
     // Start is called before the first frame update
@@ -52,11 +54,11 @@ public class RobotAssistantManager : MonoBehaviour
         animation_TeleportInHash = Animator.StringToHash(animation_TeleportIn);
     }
 
-	private void Update()
-	{
+    private void Update()
+    {
         if (isIdle)
         {
-            LookAtPoint(VRSStudioCameraRig.Instance.HMD.transform.position, rotSpeed);
+            LookAtPoint(Camera.main.transform.position, rotSpeed);
         }
 
         if (isLeisure)
@@ -65,9 +67,9 @@ public class RobotAssistantManager : MonoBehaviour
         }
     }
 
-    #region Power state
+#region Power state
     public IEnumerator PowerOnRobot()
-	{
+    {
         robotAssistantAnimator.SetBool(animationBool_isPowerOn, true); // PowerIdle -> PowerUp
 
         while (!robotAssistantAnimator.GetCurrentAnimatorStateInfo(animarionLayer_Base).IsName(animation_PowerUp))
@@ -103,11 +105,11 @@ public class RobotAssistantManager : MonoBehaviour
         yield return null;
     }
 
-    #endregion
+#endregion
 
-    #region Robot teleport
+#region Robot teleport
     public IEnumerator RobotStartTeleport(Vector3 destinationCoordinates)
-	{
+    {
         if (!isRobotPoweredOn) yield break;
 
         ForceStopReaction();
@@ -119,7 +121,7 @@ public class RobotAssistantManager : MonoBehaviour
         isSpeechBubbleIsActiveBeforeAction = robotAssistantSpeechBubble.IsActive;
 
         if (isSpeechBubbleIsActiveBeforeAction)
-		{
+        {
             robotAssistantSpeechBubble.TextBoardShowup(false);
         }
 
@@ -138,18 +140,18 @@ public class RobotAssistantManager : MonoBehaviour
         }
 
         float currentNormalizedTime = robotAssistantAnimator.GetCurrentAnimatorStateInfo(animationLayer_Move).normalizedTime;
-		while ((currentNormalizedTime) < 1f)
-		{
-			currentNormalizedTime = robotAssistantAnimator.GetCurrentAnimatorStateInfo(animationLayer_Move).normalizedTime;
-			yield return null;
-		}
-        Log.d(LOG_TAG, gameObject.name + " RobotStartTeleport: " + animation_TeleportOut + " is complete.", true);
+        while ((currentNormalizedTime) < 1f)
+        {
+            currentNormalizedTime = robotAssistantAnimator.GetCurrentAnimatorStateInfo(animationLayer_Move).normalizedTime;
+            yield return null;
+        }
+        Debug.Log(LOG_TAG + " : " + gameObject.name + " RobotStartTeleport: " + animation_TeleportOut + " is complete.");
 
         transform.position = destinationCoordinates;
         yield return StartCoroutine(RobotEndTeleport(-direction));
     }
 
-	private IEnumerator RobotEndTeleport(Vector3 TeleportDirection)
+    private IEnumerator RobotEndTeleport(Vector3 TeleportDirection)
     {
         //Set Teleport In direction
         teleportationMaterial.SetVector("_Direction", TeleportDirection);
@@ -167,7 +169,7 @@ public class RobotAssistantManager : MonoBehaviour
             currentNormalizedTime = robotAssistantAnimator.GetCurrentAnimatorStateInfo(animationLayer_Move).normalizedTime;
             yield return null;
         }
-        Log.d(LOG_TAG, gameObject.name + " RobotEndTeleport: " + animation_TeleportIn + " is complete.", true);
+        Debug.Log(LOG_TAG + " : " + gameObject.name + " RobotEndTeleport: " + animation_TeleportIn + " is complete.");
         robotAssistantAnimator.SetLayerWeight(animationLayer_Move, 0f);
 
         isIdle = true;
@@ -175,8 +177,8 @@ public class RobotAssistantManager : MonoBehaviour
         OnChangeDefaultFacial();
 
         if (OnRobotAnimationCompleteCallback_Teleport != null)
-		{
-            Log.d(LOG_TAG, gameObject.name + " RobotEndTeleport: OnRobotAnimationCompleteCallback_Teleport.Invoke", true);
+        {
+            Debug.Log(LOG_TAG + " : " + gameObject.name + " RobotEndTeleport: OnRobotAnimationCompleteCallback_Teleport.Invoke");
             OnRobotAnimationCompleteCallback_Teleport.Invoke();
         }
 
@@ -187,14 +189,14 @@ public class RobotAssistantManager : MonoBehaviour
     }
 
     private Vector3 TeleportationDirection(Vector3 destinationCoordinates, Vector3 currentCoordinates)
-	{
+    {
         Vector3 directionVector = destinationCoordinates - currentCoordinates;
         directionVector = new Vector3(-directionVector.x, directionVector.y, -directionVector.z); //negative x and z due to shader
         return directionVector.normalized;
-	}
-	#endregion
+    }
+#endregion
 
-    #region Robot idle
+#region Robot idle
     private bool isIdle = false;
     private bool isLeisure = false;
     private bool isSleep = false;
@@ -203,33 +205,33 @@ public class RobotAssistantManager : MonoBehaviour
     private float sleepTimeThres = 60f;
     public void PlayLeisureAnimation()
     {
-		if (defaultFacial != RobotAssistantEnums.FacialAnimationIndex.Normal)
-		{
-			return;
-		}
+        if (defaultFacial != RobotAssistantEnums.FacialAnimationIndex.Normal)
+        {
+            return;
+        }
 
-		if (idleTimer > leisureTimeThres && leisureTimer <= (sleepTimeThres - leisureTimeThres))
+        if (idleTimer > leisureTimeThres && leisureTimer <= (sleepTimeThres - leisureTimeThres))
         {
             TriggerLeisure();
         }
 
-		if (leisureTimer > sleepTimeThres)
-		{
-			isSleep = true;
-			TriggerReaction(RobotAssistantEnums.ReactionAnimationIndex.Sleep); //Sleep
+        if (leisureTimer > sleepTimeThres)
+        {
+            isSleep = true;
+            TriggerReaction(RobotAssistantEnums.ReactionAnimationIndex.Sleep); //Sleep
             RobotAssistantLoSCaster.RobotAssistantLoS_EnterCallback += TriggerWakeUp;
         }
 
-		idleTimer += Time.deltaTime;
-        
+        idleTimer += Time.deltaTime;
+
         if (RobotAssistantLoSCaster.isAlreadyInLoS)
-		{
+        {
             leisureTimer = 0; //Reset timer if robot is being looked at
         }
         else
-		{
+        {
             leisureTimer += Time.deltaTime;
-        }      
+        }
     }
 
     private void ResetIdleTimer()
@@ -249,9 +251,9 @@ public class RobotAssistantManager : MonoBehaviour
 
         return (rotSpeed / angle > 1);
     }
-    #endregion
+#endregion
 
-    #region Robot move
+#region Robot move
     [Header("Movement")]
     public float moveSpeed = 1f;
     public float rotSpeed = 0.08f;
@@ -319,7 +321,7 @@ public class RobotAssistantManager : MonoBehaviour
     {
         robotAssistantAnimator.SetBool("isMove", false);
 
-        Vector3 dir = (new Vector3(VRSStudioCameraRig.Instance.HMD.transform.position.x, 0, VRSStudioCameraRig.Instance.HMD.transform.position.z) - new Vector3(transform.position.x, 0, transform.position.z)).normalized;
+        Vector3 dir = (new Vector3(Camera.main.transform.position.x, 0, Camera.main.transform.position.z) - new Vector3(transform.position.x, 0, transform.position.z)).normalized;
         float angle = Vector3.Angle(transform.forward, dir);
         angle = Vector3.Dot(dir, transform.right) > 0 ? angle : -angle;
 
@@ -358,9 +360,9 @@ public class RobotAssistantManager : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
     }
-    #endregion
+#endregion
 
-    #region Robot facial
+#region Robot facial
     [Header("Facial")]
     [SerializeField] private TextureAnimator texAnim = null;
     //[SerializeField] private GuideRobotEffect effect = null;
@@ -432,11 +434,8 @@ public class RobotAssistantManager : MonoBehaviour
     private IEnumerator WaitBlinkCoroutine()
     {
         yield return new WaitForSeconds(blinkInterval);
-#if !VRSSTUDIO_INTERNAL
-        OnChangeFacial(RobotAssistantEnums.FacialAnimationIndex.NormalBlinkOnce);
-#else
+
         OnChangeFacial(RobotAssistantEnums.FacialAnimationIndex.NormalBlink);
-#endif
     }
 #endregion
 
@@ -469,7 +468,7 @@ public class RobotAssistantManager : MonoBehaviour
     }
 
     public void TriggerWakeUp()
-	{
+    {
         RobotAssistantLoSCaster.RobotAssistantLoS_EnterCallback -= TriggerWakeUp;
 
         ForceStopReaction();
@@ -495,58 +494,117 @@ public class RobotAssistantManager : MonoBehaviour
         ResetIdleTimer();
 
     }
+    public bool IsIdle()
+    {
+        return isIdle;
+    }
+
     #endregion
 }
 
 #region Animation State enum definition
-#if !VRSSTUDIO_INTERNAL
 public static class RobotAssistantEnums
 {
     public enum ReactionAnimationIndex
     {
         Angry = 0,
-        Happy = 1,
+        WaveHand = 1,
         Sleep = 2,
-        GoAhead = 3,
+        ScratchHead = 3,
+        GoAhead = 4,
+        Clap = 5,
+        Scare = 6,
         size
     }
 
     public enum IdleAnimationIndex
     {
-        RotateDance = 0,
+        LookR = 0,
+        LookL = 1,
+        Giggle = 2,
+        RotateDance = 3,
+        JumpLow = 4,
+        SwingLoop = 5,
+        WaveEarRL = 6,
+        WaveEarR = 7,
+        WaveEarL = 8,
+        BounceR = 9,
+        BounceL = 10,
+        Leap = 11,
+        LookDown = 12,
+        LookUp = 13,
         size
     }
 
     public enum FacialAnimationIndex
     {
-        Normal = 0,
+        StartLoading = 0,
+        Loading,
         PowerOn,
         PowerOff,
-        NormalBlinkOnce,
-        NormalBlinkTwice,
+        Normal,
+        NormalBlink,
+        Boring,
         Angry,
-        AngryGlitch,
-        Happy,
-        HappyGlitch,
+        Sad,
+        Squint,
+        Smile,
+        Smile_C,
+        SmileShy,
+        Happy_A,
+        Happy_B,
+        Happy_B_Loop,
+        LookLeft,
+        LookRight,
+        LookRL,
+        Awkward,
+        Moue,
+        Doubt,
+        Question,
+        Arrow,
+        Love,
+        Duck,
+        Sleep,
+        GetHit,
+        Arrow_left,
+        Arrow_right,
+        Arrow_up,
+        LookUp,
+        LookDown,
+        Clear,
         none,
+        Smile_A_Loop,
+        moveA,
+        moveB,
+        shock,
+        smile_D,
+        smile_E,
+        smile_F,
         size
     }
-
     public static FacialAnimationIndex InquireFacial(ReactionAnimationIndex pose)
     {
         FacialAnimationIndex facial = FacialAnimationIndex.none;
         switch (pose)
         {
+            case ReactionAnimationIndex.Clap:
+                facial = FacialAnimationIndex.Happy_B_Loop;
+                break;
+            case ReactionAnimationIndex.ScratchHead:
+                facial = FacialAnimationIndex.Question;
+                break;
+            case ReactionAnimationIndex.Sleep://Sleep
+                facial = FacialAnimationIndex.Sleep;
+                break;
+            case ReactionAnimationIndex.WaveHand:
+                facial = FacialAnimationIndex.Smile_C;
+                break;
             case ReactionAnimationIndex.Angry:
                 facial = FacialAnimationIndex.Angry;
                 break;
-            case ReactionAnimationIndex.Happy:
-                facial = FacialAnimationIndex.Happy;
+            case ReactionAnimationIndex.Scare:
+                facial = FacialAnimationIndex.Sad;
                 break;
-            case ReactionAnimationIndex.Sleep://Sleep
-                facial = FacialAnimationIndex.PowerOff;
-                break;
-            case ReactionAnimationIndex.GoAhead:
             default:
                 facial = FacialAnimationIndex.Normal;
                 break;
@@ -559,8 +617,37 @@ public static class RobotAssistantEnums
         FacialAnimationIndex facial = FacialAnimationIndex.none;
         switch (pose)
         {
-            case IdleAnimationIndex.RotateDance:
-                facial = FacialAnimationIndex.NormalBlinkOnce;
+            case IdleAnimationIndex.LookL:
+            case IdleAnimationIndex.BounceL:
+                facial = FacialAnimationIndex.LookLeft;
+                break;
+            case IdleAnimationIndex.LookR:
+            case IdleAnimationIndex.BounceR:
+                facial = FacialAnimationIndex.LookRight;
+                break;
+            case IdleAnimationIndex.WaveEarL:
+                facial = FacialAnimationIndex.LookLeft;
+                break;
+            case IdleAnimationIndex.WaveEarR:
+                facial = FacialAnimationIndex.LookRight;
+                break;
+            case IdleAnimationIndex.WaveEarRL:
+                facial = FacialAnimationIndex.Happy_A;
+                break;
+            case IdleAnimationIndex.Giggle:
+                facial = FacialAnimationIndex.Happy_A;
+                break;
+            case IdleAnimationIndex.JumpLow:
+                facial = FacialAnimationIndex.Happy_B;
+                break;
+            case IdleAnimationIndex.SwingLoop:
+                facial = FacialAnimationIndex.LookRL;
+                break;
+            case IdleAnimationIndex.LookUp:
+                facial = FacialAnimationIndex.LookUp;
+                break;
+            case IdleAnimationIndex.LookDown:
+                facial = FacialAnimationIndex.LookDown;
                 break;
             default:
                 facial = FacialAnimationIndex.Normal;
@@ -569,7 +656,5 @@ public static class RobotAssistantEnums
         return facial;
     }
 }
-#endif
-
 
 #endregion

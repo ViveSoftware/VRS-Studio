@@ -36,16 +36,33 @@ MonoBehaviour:
   overridePixelDensity: 0
   pixelDensity: 1
   resolutionScale: 1
+  overrideThreadPriority: 0
+  gameThreadPriority: 0
+  renderThreadPriority: -2
+  jobWorkerThreadPriority: 0
   debugLogFlagForNative: 1048335
   debugLogFlagForUnity: 1048335
   overrideLogFlagForNative: 0
+  useCMPChecker: 0
   amcMode: 0
   amcModeConfirm: 0
+  fadeOut: 0
+  enableFSE: 0
+  FSE_Level: 0.5
   supportedFPS: 0
   waveXRFolder: Assets/Wave/XR
   waveEssenceFolder: Assets/Wave/Essence
   displayGamutPreferences: 0000000001000000
   enableAutoFallbackForMultiLayer: 1
-  EnableTracker: 0
-  EnableNaturalHand: 0
+  allowSpectatorCamera: 1
+  allowSpectatorCameraCapture360Image: 1
+  EnableTracker: 1
+  EnableNaturalHand: 1
   EnableElectronicHand: 0
+  EnableEyeTracking: 1
+  EnableEyeExpression: 1
+  EnableLipExpression: 1
+  EnableBodyTracking: 1
+  EnableScenePerception: 0
+  EnableSceneMesh: 0
+  EnableMarker: 0

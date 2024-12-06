@@ -22,9 +22,8 @@ namespace Wave.Essence.Hand
 		const string LOG_TAG = "Wave.Essence.Hand.BaseInteractable";
 		void DEBUG(string msg)
 		{
-			if (Log.EnableDebugLog)
-				Log.d(LOG_TAG, msg, true);
-		}
+            Log.d(LOG_TAG, msg, true);
+        }
 		void INFO(string msg) { Log.w(LOG_TAG, msg, true); }
 
 		#region IInteractable
