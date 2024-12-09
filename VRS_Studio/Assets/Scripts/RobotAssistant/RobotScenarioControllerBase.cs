@@ -6,14 +6,14 @@ public class RobotScenarioControllerBase : MonoBehaviour
 {
     public GameObject InitialPositionAnchorObject;
 
-	public void InitializeRobot()
-	{
-		RobotAssistantManager.robotAssistantManagerInstance.robotAssistantSpeechBubble.TextBoardShowup(false);
-		StartCoroutine(Initialization());
-	}
+    public void InitializeRobot()
+    {
+        RobotAssistantManager.Instance.robotAssistantSpeechBubble.TextBoardShowup(false);
+        StartCoroutine(Initialization());
+    }
 
-	private IEnumerator Initialization()
-	{
-        yield return StartCoroutine(RobotAssistantManager.robotAssistantManagerInstance.RobotStartTeleport(InitialPositionAnchorObject.transform.position));
+    private IEnumerator Initialization()
+    {
+        yield return StartCoroutine(RobotAssistantManager.Instance.RobotStartTeleport(InitialPositionAnchorObject.transform.position));
     }
 }

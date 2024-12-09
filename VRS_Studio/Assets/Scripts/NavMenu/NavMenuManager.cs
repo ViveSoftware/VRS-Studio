@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using Wave.Essence.Hand.NearInteraction.Extend;
+using Wave.Essence.Hand;
 using Wave.Essence.Hand.NearInteraction;
 using Wave.Native;
 
@@ -454,7 +454,7 @@ public class NavMenuManager : MonoBehaviour
 	{
 		Log.d(LOG_TAG, "HandleScenarioChangeRequest: " + targetScenario);
 		CloseNavMenu();
-		VRSStudioSceneManager.Instance.SwitchContentScene(targetScenario);
+		//VRSStudioSceneManager.Instance.SwitchContentScene(targetScenario);
 	}
 
 	public void BeginMenuTutorial()

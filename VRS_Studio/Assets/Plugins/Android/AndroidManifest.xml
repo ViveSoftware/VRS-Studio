@@ -6,7 +6,8 @@
                  android:label="@string/app_name"
                  android:theme="@style/Theme.WaveVR.Black"
                  android:resizeableActivity="false"
-				 tools:replace="android:theme">  <!--You can use your theme here.-->
+                 android:requestLegacyExternalStorage="true"
+                 tools:replace="android:theme">  <!--You can use your theme here.-->
         <activity android:name="com.htc.vr.unity.WVRUnityVRActivity"
                   android:label="@string/app_name"
 				  android:configChanges="density|fontScale|keyboard|keyboardHidden|layoutDirection|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen"
@@ -24,11 +25,15 @@
     <!-- <uses-permission android:name="android.permission.CAMERA" /> -->
     <!-- <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /> -->
 
-    <uses-permission android:name="vive.wave.vr.oem.data.OEMDataRead" />
-    <uses-permission android:name="vive.wave.vr.oem.data.OEMDataWrite" />
-	
-	<uses-feature
-	    android:name="wave.feature.handtracking"
-		android:required="true"	/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_MEDIA_LOCATION" />
+    <uses-permission android:name="android.permission.WRITE_MEDIA_STORAGE" />
+
+    <uses-feature android:name="wave.feature.handtracking" android:required="true" />
+    <uses-feature android:name="wave.feature.tracker" android:required="true" />
+    <uses-feature android:name="wave.feature.eyetracking" android:required="true" />
+    <uses-feature android:name="wave.feature.bodytracking" android:required="true" />
+    <uses-feature android:name="wave.feature.lipexpression" android:required="true" />
 </manifest>
 

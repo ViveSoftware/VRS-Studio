@@ -1,14 +1,14 @@
 ﻿using Microsoft.CognitiveServices.Speech;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
-using Wave.VoiceCommand;
+using VRSStudio.Utils;
 
 public class RobotAssistantEntranceSequence : MonoBehaviour
 {
-    public RobotAssistantManager robotAssistantManagerInstance = null;
-    private VoiceCommandManager voiceCommandManager = null;
+    public RobotAssistantManager Instance = null;
 
     private string tutorialIntroLine = "Hello there! It seems that this is your first time here, let's warm ourselves up for a bit.";
     private string replayIntroLine = "Hey, you are back! Open the menu to try out different experiences.";
@@ -16,12 +16,10 @@ public class RobotAssistantEntranceSequence : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (robotAssistantManagerInstance == null)
+        if (Instance == null)
         {
-            robotAssistantManagerInstance = RobotAssistantManager.robotAssistantManagerInstance;
+            Instance = RobotAssistantManager.Instance;
         }
-
-        voiceCommandManager = VoiceCommandManager.Instance;
 
         RobotAssistantLoSCaster.RobotAssistantLoS_EnterCallback += PowerOnSequence;
     }
@@ -35,100 +33,71 @@ public class RobotAssistantEntranceSequence : MonoBehaviour
 
     private IEnumerator PowerOnSequenceCoroutine()
     {
-        yield return StartCoroutine(robotAssistantManagerInstance.PowerOnRobot());
-        robotAssistantManagerInstance.SetRobotPosition(new Vector3(transform.position.x, VRSStudioCameraRig.Instance.HMD.transform.position.y - 0.35f, transform.position.z), PowerOnSequenceComplete);
+        yield return StartCoroutine(Instance.PowerOnRobot());
+        Instance.SetRobotPosition(new Vector3(transform.position.x, Camera.main.transform.position.y - 0.35f, transform.position.z), PowerOnSequenceComplete);
     }
 
     private async void PowerOnSequenceComplete()
     {
-        VRSStudioSceneManager.Instance.LoadNavMenuScene();
+        //VRSStudioSceneManager.Instance.LoadNavMenuScene();
 
-        if (!TrackingBoundaryGuideManager.TutorialCompletedBefore())
-        {
-            await ToTutorialSequence();
-        }
-        else
-        {
-            await ReplaySequence();
-        }
+        //if (!VRSStudioHelper.TutorialCompletedBefore())
+        //{
+        //    ToTutorialSequence();
+        //}
+        //else
+        //{
+        //    ReplaySequence();
+        //}
     }
 
-    private async Task ToTutorialSequence()
+    public Action<string> ToTutorialSequenceEvent;
+    private void ToTutorialSequence()
     {
-#if !VRSSTUDIO_INTERNAL
-        if (VoiceCommandManager.Instance.IsCognitiveServicesInfoValid())
-        {
-#endif
-        await VoiceCommandManager.Instance.ReInitializeSpeechSynthesizer("en-US", "en-US-GuyNeural");
-
-        VoiceCommandManager.Instance.SpeechSynthesizerComponent.SynthesisStarted += OnToTutorialVoiceBegin;
-
-        await VoiceCommandManager.Instance.StartSynthesis(tutorialIntroLine);
-#if !VRSSTUDIO_INTERNAL
-        }
-        else
-        {
-            StartCoroutine(OnToTutorialVoiceBeginCoroutine());
-        }            
-#endif
+        ToTutorialSequenceEvent?.Invoke(tutorialIntroLine);
     }
 
-    private void OnToTutorialVoiceBegin(object sender, SpeechSynthesisEventArgs e)
+    public void OnToTutorialVoiceBegin(object sender, SpeechSynthesisEventArgs e)
     {
         StartCoroutine(OnToTutorialVoiceBeginCoroutine());
     }
 
     IEnumerator OnToTutorialVoiceBeginCoroutine()
     {
-        robotAssistantManagerInstance.robotAssistantSpeechBubble.TextBoardShowup(true);
+        Instance.robotAssistantSpeechBubble.TextBoardShowup(true);
         yield return new WaitForSecondsRealtime(1.5f);
-        robotAssistantManagerInstance.robotAssistantSpeechBubble.RobotLines = tutorialIntroLine;
-        robotAssistantManagerInstance.robotAssistantSpeechBubble.typingInterval = 0.05f;
-        yield return StartCoroutine(robotAssistantManagerInstance.robotAssistantSpeechBubble.PlayTypingWordAnim());
+        Instance.robotAssistantSpeechBubble.RobotLines = tutorialIntroLine;
+        Instance.robotAssistantSpeechBubble.typingInterval = 0.05f;
+        yield return StartCoroutine(Instance.robotAssistantSpeechBubble.PlayTypingWordAnim());
         yield return new WaitForSecondsRealtime(1f);
         OnToTutorialVoiceEnd();
     }
 
     private void OnToTutorialVoiceEnd()
     {
-        robotAssistantManagerInstance.robotAssistantSpeechBubble.TextBoardShowup(false);
-        robotAssistantManagerInstance.SetRobotPosition(new Vector3(-1.141f, 0.809f, 1.612f), VRSStudioSceneManager.Instance.InitialSceneLoadSequence);
+        Instance.robotAssistantSpeechBubble.TextBoardShowup(false);
+        //Instance.SetRobotPosition(new Vector3(-1.141f, 0.809f, 1.612f), VRSStudioSceneManager.Instance.InitialSceneLoadSequence);
     }
 
-    private async Task ReplaySequence()
+    public Action<string> ReplaySequenceEvent;
+    private void ReplaySequence()
     {
-        VRSStudioSceneManager.Instance.InitialSceneLoadSequence();
-
-#if !VRSSTUDIO_INTERNAL
-        if (VoiceCommandManager.Instance.IsCognitiveServicesInfoValid())
-        {
-#endif
-        await VoiceCommandManager.Instance.ReInitializeSpeechSynthesizer("en-US", "en-US-GuyNeural");
-
-        VoiceCommandManager.Instance.SpeechSynthesizerComponent.SynthesisStarted += ReplayVoiceBegin;
-
-        await VoiceCommandManager.Instance.StartSynthesis(replayIntroLine);
-#if !VRSSTUDIO_INTERNAL
-        }
-        else
-        {
-            StartCoroutine(ReplayVoiceBeginCoroutine());
-        }
-#endif
+        //VRSStudioSceneManager.Instance.InitialSceneLoadSequence();
+        ReplaySequenceEvent?.Invoke(replayIntroLine);
     }
 
-    private void ReplayVoiceBegin(object sender, SpeechSynthesisEventArgs e)
+    public void ReplayVoiceBegin(object sender, SpeechSynthesisEventArgs e)
     {
         StartCoroutine(ReplayVoiceBeginCoroutine());
     }
 
     IEnumerator ReplayVoiceBeginCoroutine()
     {
-        robotAssistantManagerInstance.robotAssistantSpeechBubble.TextBoardShowup(true);
+        Instance.robotAssistantSpeechBubble.TextBoardShowup(true);
         yield return new WaitForSecondsRealtime(1.5f);
-        robotAssistantManagerInstance.robotAssistantSpeechBubble.RobotLines = replayIntroLine;
-        robotAssistantManagerInstance.robotAssistantSpeechBubble.typingInterval = 0.05f;
-        yield return StartCoroutine(robotAssistantManagerInstance.robotAssistantSpeechBubble.PlayTypingWordAnim());
+        Instance.robotAssistantSpeechBubble.RobotLines = replayIntroLine;
+        Instance.robotAssistantSpeechBubble.typingInterval = 0.05f;
+        yield return StartCoroutine(Instance.robotAssistantSpeechBubble.PlayTypingWordAnim());
         yield return new WaitForSecondsRealtime(1f);
     }
 

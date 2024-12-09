@@ -13,8 +13,8 @@ public class SqueezeObject : MonoBehaviour
     public BasicGrabbable grabbedObj;
     public PlayableDirector playableDirector;
 
-    private ViveRoleProperty rightTrackedHandRole = ViveRoleProperty.New(TrackedHandRole.RightHand);
-    private ViveRoleProperty leftTrackedHandRole = ViveRoleProperty.New(TrackedHandRole.LeftHand);
+    private ViveRoleProperty rightHandRole = ViveRoleProperty.New(HandRole.RightHand);
+    private ViveRoleProperty leftHandRole = ViveRoleProperty.New(HandRole.LeftHand);
 
     private Vector3 balloon_orig_pos;
     private Quaternion balloon_orig_rot;
@@ -65,8 +65,8 @@ public class SqueezeObject : MonoBehaviour
 
     void Update()
     {
-        var rightDeviceState = VRModule.GetCurrentDeviceState(rightTrackedHandRole.GetDeviceIndex());
-        var leftDeviceState = VRModule.GetCurrentDeviceState(leftTrackedHandRole.GetDeviceIndex());
+        var rightDeviceState = VRModule.GetCurrentDeviceState(rightHandRole.GetDeviceIndex());
+        var leftDeviceState = VRModule.GetCurrentDeviceState(leftHandRole.GetDeviceIndex());
 
         if (!rightDeviceState.isPoseValid && !leftDeviceState.isPoseValid) return;
 
@@ -92,7 +92,7 @@ public class SqueezeObject : MonoBehaviour
                         rotOffset = new Vector3(0f, -110f, 0f);
                         break;
                 }
-                
+
                 balloonState = BalloonState.Grabbed;
             }
 
@@ -142,7 +142,7 @@ public class SqueezeObject : MonoBehaviour
             reset = 1f;
             playableDirector.time = 0;
             playableDirector.Evaluate();
-            balloon.position = new Vector3(1f, 1.15f, 0f);
+            balloon.position = balloon_orig_pos;
             balloon.rotation = balloon_orig_rot;
             balloon.GetComponentInChildren<Rigidbody>().velocity = Vector3.zero;
             balloon.GetComponentInChildren<Rigidbody>().angularVelocity = Vector3.zero;

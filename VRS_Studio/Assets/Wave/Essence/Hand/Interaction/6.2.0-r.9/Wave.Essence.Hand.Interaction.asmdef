@@ -1,0 +1,22 @@
+{
+    "name": "Wave.Essence.Hand.Interaction",
+    "references": [
+        "Wave.Essence",
+        "Wave.Native",
+        "Wave.XRSDK"
+    ],
+    "includePlatforms": [
+        "Android",
+        "Editor",
+        "WSA",
+        "WindowsStandalone64"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
